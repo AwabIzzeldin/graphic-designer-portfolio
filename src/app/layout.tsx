@@ -14,16 +14,20 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "أبوبكر بدوي | مصمم جرافيك - هويات بصرية متميزة",
-  description: "من الشعار إلى الألوان والتطبيقات — نخلق هوية تُشبهك وتُميزك",
+  description: "من الشعار إلى الألوان — نخلق هوية تُشبهك وتُميزك",
+icons: {
+  icon: ["/favicon.ico", "/favicon.png"],
+},
+
 };
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
-    <html lang="en">
+    <html lang="ar" dir="rtl">
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
