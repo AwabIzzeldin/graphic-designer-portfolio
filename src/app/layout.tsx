@@ -15,10 +15,6 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "أبوبكر بدوي | مصمم جرافيك - هويات بصرية متميزة",
   description: "من الشعار إلى الألوان — نخلق هوية تُشبهك وتُميزك",
-icons: {
-  icon: ["/favicon.ico", "/favicon.png"],
-},
-
 };
 
 export default function RootLayout({
