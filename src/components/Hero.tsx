@@ -53,12 +53,12 @@ export default function Hero() {
                 className="absolute inset-0 flex flex-col items-center justify-center text-center px-6"
               >
                 <motion.h1
-                  className="text-5xl md:text-7xl font-bold leading-tight text-white drop-shadow-[0_3px_10px_rgba(0,0,0,0.6)]"
+                  className="text-4xl md:text-7xl font-bold leading-tight text-white drop-shadow-[0_3px_10px_rgba(0,0,0,0.6)]"
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 1, delay: 0.2 }}
                 >
-                  أصنع <span className="text-[#e86327]">تصاميم</span>
+                  أصنع <span className="text-[#e86327]">تصاميم </span>
                   <br className="hidden md:block" />
                   تترك <span className="text-[#e86327]">أثرًا بصريًا</span> لا يُنسى.
                 </motion.h1>
@@ -80,13 +80,13 @@ export default function Hero() {
                 >
                   <a
                     href="#projects"
-                    className="px-8 py-3 rounded-full bg-[#e86327] text-black font-semibold shadow-[0_0_14px_#e86327] hover:shadow-[0_0_22px_#e86327] transition"
+                    className="text-xl px-8 py-3 rounded-full bg-[#e86327] text-black font-semibold shadow-[0_0_14px_#e86327] hover:shadow-[0_0_22px_#e86327] transition"
                   >
-                    شاهد أعمالي
+                     أعمالي
                   </a>
                   <a
                     href="#contact"
-                    className="px-8 py-3 rounded-full border border-white/20 text-white hover:border-white/40 transition"
+                    className="text-xl px-8 py-3 rounded-full border border-white/20 text-white hover:border-white/40 transition"
                   >
                     تواصل معي
                   </a>

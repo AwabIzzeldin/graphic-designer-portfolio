@@ -5,7 +5,7 @@ export default function Contact() {
   return (
     <section
       id="contact"
-      className="relative py-28 bg-gradient-to-b from-[#0D0A07] via-[#1A0033]/40 to-[#0D0A07] overflow-hidden"
+      className="relative py-16 md:py-20 bg-gradient-to-b from-[#0D0A07] via-[#1A0033]/40 to-[#0D0A07] overflow-hidden"
     >
       {/* خلفية توهج برتقالي */}
       <div className="absolute inset-0 bg-gradient-to-t from-[#e86327]/5 via-transparent to-transparent blur-[120px] -z-10" />
@@ -17,7 +17,7 @@ export default function Contact() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.7 }}
-          className="text-4xl md:text-5xl font-semibold mb-4"
+          className="text-4xl md:text-5xl font-semibold mb-3"
         >
           تواصل معي
         </motion.h2>
@@ -27,7 +27,7 @@ export default function Contact() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="text-white/60 max-w-2xl mx-auto mb-12 text-base md:text-lg"
+          className="text-white/60 max-w-2xl mx-auto mb-8 text-base md:text-lg"
         >
           عندك فكرة، مشروع، أو تعاون حاب نشتغل عليه سوا؟  
           اكتب التفاصيل و حا نتواصل معاك!
@@ -69,7 +69,7 @@ export default function Contact() {
           </div>
 
           {/* Submit button */}
-          <div className="md:col-span-2 text-center pt-2">
+          <div className="md:col-span-2 text-center pt-0">
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.97 }}
