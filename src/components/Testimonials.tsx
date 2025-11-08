@@ -128,8 +128,20 @@ export default function Testimonials() {
   );
 }
 
-/* ✅ مكون البطاقة القابل لإعادة الاستخدام */
-function TestimonialCard({ t, i }) {
+type Testimonial = {
+  name: string;
+  role: string;
+  img: string;
+  quote: string;
+};
+
+interface TestimonialCardProps {
+  t: Testimonial;
+  i: number;
+}
+
+function TestimonialCard({ t, i }: TestimonialCardProps) {
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 30 }}
