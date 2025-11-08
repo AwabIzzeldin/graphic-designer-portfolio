@@ -1,7 +1,21 @@
 "use client";
 import { motion } from "framer-motion";
+import {
+  SiAdobephotoshop,
+  SiAdobeillustrator,
+  SiFigma,
+  SiAdobepremierepro,
+  SiCinema4D,
+} from "react-icons/si";
 
 export default function About() {
+  const tools = [
+    { icon: <SiAdobephotoshop className="w-6 h-6 text-[#31A8FF]" />, name: "Photoshop" },
+    { icon: <SiAdobeillustrator className="w-6 h-6 text-[#FF9A00]" />, name: "Illustrator" },
+    { icon: <SiAdobepremierepro className="w-6 h-6 text-[#9999FF]" />, name: "After Effects" },
+    { icon: <SiCinema4D className="w-6 h-6 text-[#00AEEF]" />, name: "Cinema 4D" },
+  ];
+
   return (
     <section
       id="about"
@@ -52,21 +66,27 @@ export default function About() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
-            className="mt-8 flex flex-wrap gap-3 text-sm md:text-base"
+            className="mt-8 flex flex-wrap gap-4 text-sm md:text-base"
           >
-            {["Photoshop", "Illustrator", "Figma", "After Effects", "Cinema 4D"].map(
-              (s) => (
-                <span
-                  key={s}
-                  className="px-4 py-2 rounded-full border border-white/15 bg-white/5 hover:border-[#e86327]/60 hover:text-[#e86327] transition font-medium"
-                >
-                  {s}
-                </span>
-              )
-            )}
+            {tools.map((tool, i) => (
+              <motion.div
+                key={i}
+                whileHover={{
+                  scale: 1.15,
+                  boxShadow: "0 0 25px rgba(232,99,39,0.6)",
+                }}
+                transition={{ type: "spring", stiffness: 300, damping: 12 }}
+                className="flex items-center gap-2 px-4 py-2 rounded-full border border-white/15 bg-white/5 
+                           hover:border-[#e86327]/60 transition font-medium backdrop-blur-md"
+              >
+                {tool.icon}
+                <span className="text-white/80">{tool.name}</span>
+              </motion.div>
+            ))}
           </motion.div>
         </motion.div>
 
+        {/* ✅ الصورة القديمة بدون التأثير المائل */}
         <motion.div
           initial={{ opacity: 0, x: -50 }}
           whileInView={{ opacity: 1, x: 0 }}
@@ -74,18 +94,14 @@ export default function About() {
           transition={{ duration: 0.8 }}
           className="relative flex justify-center md:justify-end"
         >
-          <motion.div
-            whileHover={{ rotate: -1, scale: 1.02 }}
-            transition={{ duration: 0.4 }}
-            className="relative w-[85%] md:w-[90%] rounded-[2rem] overflow-hidden border border-white/10 shadow-[0_0_40px_rgba(232,99,39,0.25)] hover:shadow-[0_0_80px_rgba(232,99,39,0.35)] transition"
-          >
+          <div className="relative w-[85%] md:w-[90%] rounded-[2rem] overflow-hidden border border-white/10 shadow-[0_0_40px_rgba(232,99,39,0.25)] hover:shadow-[0_0_60px_rgba(232,99,39,0.35)] transition">
             <img
               src="/images/designer-portrait.jpg"
               alt="صورة أبوبكر"
               className="w-full h-full object-cover"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
-          </motion.div>
+            <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
+          </div>
 
           <motion.div
             className="absolute -bottom-8 -left-8 h-40 w-40 bg-[#e86327]/40 blur-3xl rounded-full opacity-60"
