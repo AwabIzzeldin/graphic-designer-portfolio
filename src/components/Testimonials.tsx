@@ -14,33 +14,33 @@ const testimonials = [
   },
   {
     name: "ملك",
-    role: "مالك Froozy Panda",
+    role: "مالكة Froozy Panda",
     img: "/images/designer-portrait.jpg",
-    quote: "النتيجة كانت فخمة جدًا.",
+    quote: "الخدمة كانت سريعة والتصميم متقن.",
   },
   {
     name: "ريم",
-    role: "مالك Froozy Panda",
+    role: "صاحبة متجر Blossom",
     img: "/images/designer-portrait.jpg",
-    quote: "النتيجة كانت فخمة جدًا.",
+    quote: "تصميم احترافي ومظهر فاخر جدًا.",
   },
   {
     name: "خالد",
-    role: "مالك Froozy Panda",
+    role: "مالك Brandify",
     img: "/images/designer-portrait.jpg",
-    quote: "النتيجة كانت فخمة جدًا.",
+    quote: "التعاون كان سلس والنتيجة مذهلة.",
   },
   {
-    name: "خالد",
-    role: "مالك Froozy Panda",
+    name: "نورة",
+    role: "مؤسسة Aura Studio",
     img: "/images/designer-portrait.jpg",
-    quote: "النتيجة كانت فخمة جدًا.",
+    quote: "فهم سريع للهوية وتنفيذ بجودة عالية.",
   },
   {
-    name: "خالد",
-    role: "مالك Froozy Panda",
+    name: "ليان",
+    role: "صاحبة Minimal Touch",
     img: "/images/designer-portrait.jpg",
-    quote: "النتيجة كانت فخمة جدًا.",
+    quote: "النتيجة كانت أفضل من المتوقع.",
   },
 ];
 
@@ -50,30 +50,35 @@ export default function Testimonials() {
       id="testimonials"
       className="relative py-20 md:py-28 bg-gradient-to-b from-[#0D0A07] via-[#1A0033]/40 to-[#0D0A07] overflow-hidden"
     >
-      <div className="absolute -top-20 left-1/2 -translate-x-1/2 w-[60vw] h-[60vw] bg-[#e86327]/10 blur-[140px] rounded-full opacity-60 -z-10" />
+      {/* Subtle glow background */}
+      <div className="absolute -top-20 left-1/2 -translate-x-1/2 w-[60vw] h-[60vw] bg-[#e86327]/10 blur-[100px] md:blur-[140px] rounded-full opacity-60 -z-10" />
 
-      <div className="mx-auto w-[90%] md:w-[85%] xl:w-[80%] text-center mb-16">
-        <h2 className="text-4xl md:text-5xl font-semibold mb-4">
-          آراء العملاء
-        </h2>
-        <p className="text-white/60 max-w-2xl mx-auto text-base md:text-lg">
+      {/* Section Title */}
+      <motion.div
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.3 }}
+        transition={{ duration: 0.6 }}
+        className="mx-auto w-[90%] md:w-[85%] xl:w-[80%] text-center mb-16 will-change-[transform,opacity]"
+      >
+        <h2 className="text-4xl md:text-5xl font-semibold mb-4">آراء العملاء</h2>
+        <p className="text-white/60 max-w-2xl mx-auto text-base md:text-lg leading-relaxed">
           تجارب عملاء حقيقية عكست رؤيتهم البصرية وتحولت إلى قصص نجاح.
         </p>
-      </div>
+      </motion.div>
 
-      {/* ✅ الكاروسيل للموبايل فقط */}
-      <div className="md:hidden">
+      {/* ✅ Mobile Carousel */}
+      <div className="md:hidden will-change-[transform,opacity]">
         <Swiper
           modules={[Autoplay, Pagination]}
           autoplay={{
             delay: 5000,
             disableOnInteraction: false,
           }}
-          pagination={{
-            clickable: true,
-          }}
-          spaceBetween={24}
+          pagination={{ clickable: true }}
+          spaceBetween={20}
           slidesPerView={1.1}
+          centeredSlides
           className="px-6 pb-16"
         >
           {testimonials.map((t, i) => (
@@ -84,13 +89,14 @@ export default function Testimonials() {
         </Swiper>
       </div>
 
-      {/* ✅ شبكة بطاقات للشاشات المتوسطة وفوق */}
+      {/* ✅ Desktop Grid */}
       <div className="hidden md:grid grid-cols-2 lg:grid-cols-3 gap-8 w-[90%] md:w-[80%] mx-auto">
         {testimonials.map((t, i) => (
           <TestimonialCard key={i} t={t} />
         ))}
       </div>
 
+      {/* Swiper Pagination Styles */}
       <style jsx global>{`
         .swiper-pagination {
           position: absolute;
@@ -119,6 +125,7 @@ export default function Testimonials() {
   );
 }
 
+/* ✅ Lightweight Card */
 type Testimonial = {
   name: string;
   role: string;
@@ -132,25 +139,27 @@ interface TestimonialCardProps {
 
 function TestimonialCard({ t }: TestimonialCardProps) {
   return (
-    <div className="flex flex-col md:flex-row items-center gap-6 p-8 md:p-10 rounded-3xl bg-white/5 border border-white/10 backdrop-blur-xl text-left transition hover:border-[#e86327]/40 hover:bg-white/10 shadow-[0_0_25px_rgba(232,99,39,0.1)]">
+    <motion.div
+      whileHover={{ scale: 1.02 }}
+      transition={{ duration: 0.3 }}
+      className="flex flex-col md:flex-row items-center gap-6 p-8 md:p-10 rounded-3xl bg-white/5 border border-white/10 
+                 backdrop-blur-xl text-left transition-all hover:border-[#e86327]/40 hover:bg-white/10 
+                 shadow-[0_0_25px_rgba(232,99,39,0.1)] will-change-[transform,opacity]"
+    >
+      {/* Avatar */}
       <div className="flex-shrink-0">
         <div className="w-20 h-20 md:w-24 md:h-24 rounded-full overflow-hidden border border-[#e86327]/30 shadow-[0_0_15px_rgba(232,99,39,0.2)]">
-          <img
-            src={t.img}
-            alt={t.name}
-            className="w-full h-full object-cover"
-          />
+          <img src={t.img} alt={t.name} className="w-full h-full object-cover" />
         </div>
       </div>
+
+      {/* Text */}
       <div>
-        <p className="text-white/80 text-base md:text-lg leading-relaxed mb-4">
-          “{t.quote}”
-        </p>
+        <p className="text-white/80 text-base md:text-lg leading-relaxed mb-4">“{t.quote}”</p>
         <div className="text-sm md:text-base text-[#e86327] font-semibold">
-          {t.name}{" "}
-          <span className="text-white/60 font-normal">| {t.role}</span>
+          {t.name} <span className="text-white/60 font-normal">| {t.role}</span>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 }
