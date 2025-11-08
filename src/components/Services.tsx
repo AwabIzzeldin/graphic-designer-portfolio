@@ -45,16 +45,17 @@ export default function Services() {
   return (
     <section
       id="services"
-      className="relative min-h-[85vh] flex flex-col items-center justify-center bg-gradient-to-b from-[#0D0A07] via-[#1A0033]/40 to-[#0D0A07] overflow-hidden text-center"
+      className="relative flex flex-col items-center justify-center bg-gradient-to-b from-[#0D0A07] via-[#1A0033]/40 to-[#0D0A07] overflow-hidden text-center py-24 md:py-32"
     >
-      <div className="absolute inset-0 bg-[#e86327]/5 blur-[160px] -z-10 opacity-70" />
+      <div className="absolute inset-0 bg-[#e86327]/5 blur-[80px] md:blur-[140px] -z-10 opacity-70" />
 
+      {/* Section Title */}
       <motion.div
-        initial={{ opacity: 0, y: 20 }}
+        initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
+        viewport={{ once: true, amount: 0.3 }}
         transition={{ duration: 0.8 }}
-        className="space-y-4 mb-10"
+        className="space-y-4 mb-10 will-change-[transform,opacity]"
       >
         <h2 className="text-4xl md:text-6xl font-semibold">خدماتي</h2>
         <p className="text-white/60 max-w-xl mx-auto text-base md:text-lg leading-relaxed">
@@ -62,13 +63,14 @@ export default function Services() {
         </p>
       </motion.div>
 
-      <div className="md:hidden w-full px-2">
+      {/* Mobile Carousel */}
+      <div className="md:hidden w-full px-2 will-change-[transform,opacity]">
         <Swiper
           modules={[Pagination]}
           pagination={{ clickable: true }}
           spaceBetween={16}
           slidesPerView={"auto"}
-          centeredSlides={true}
+          centeredSlides
           className="pb-12"
         >
           {items.map((item, i) => (
@@ -79,17 +81,19 @@ export default function Services() {
         </Swiper>
       </div>
 
+      {/* Desktop Grid */}
       <div className="hidden md:grid grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 w-[90%] md:w-[80%]">
         {items.map((item, i) => (
           <ServiceCard key={i} item={item} i={i} />
         ))}
       </div>
 
+      {/* Soft Animated Glow */}
       <motion.div
-        className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[70vw] h-[16vh] bg-[#e86327]/10 blur-[100px] rounded-full"
+        className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[70vw] h-[16vh] bg-[#e86327]/10 blur-[80px] rounded-full"
         animate={{
           opacity: [0.4, 0.7, 0.4],
-          scale: [1, 1.2, 1],
+          scale: [1, 1.15, 1],
         }}
         transition={{
           duration: 6,
@@ -98,6 +102,7 @@ export default function Services() {
         }}
       />
 
+      {/* Swiper Pagination Styles */}
       <style jsx global>{`
         .swiper-pagination {
           position: relative;
@@ -124,21 +129,15 @@ export default function Services() {
   );
 }
 
-function ServiceCard({ item, i }: ServiceCardProps) {
+function ServiceCard({ item }: ServiceCardProps) {
   return (
     <motion.div
-      key={i}
-      initial={{ opacity: 0, y: 40 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.6, delay: i * 0.1 }}
       whileHover={{
         scale: 1.05,
         boxShadow: "0 0 30px rgba(232,99,39,0.3)",
       }}
-      className="relative rounded-3xl p-8 md:p-10 bg-white/5 border border-white/10 
-                 hover:border-[#e86327]/50 backdrop-blur-xl 
-                 transition-all overflow-hidden text-left group"
+      transition={{ duration: 0.3 }}
+      className="relative rounded-3xl p-8 md:p-10 bg-white/5 border border-white/10 hover:border-[#e86327]/50 backdrop-blur-xl transition-all overflow-hidden text-left group will-change-[transform,opacity]"
     >
       <div className="absolute inset-0 bg-gradient-to-t from-[#e86327]/20 via-transparent to-transparent opacity-0 group-hover:opacity-30 transition-all duration-700" />
       <div className="mb-5">{item.icon}</div>
