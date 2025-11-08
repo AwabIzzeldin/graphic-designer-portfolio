@@ -6,8 +6,19 @@ import "swiper/css";
 import "swiper/css/pagination";
 import { PenTool, Palette, Monitor, Lightbulb } from "lucide-react";
 
+type Service = {
+  title: string;
+  desc: string;
+  icon: JSX.Element;
+};
+
+interface ServiceCardProps {
+  item: Service;
+  i: number;
+}
+
 export default function Services() {
-  const items = [
+  const items: Service[] = [
     {
       title: "تصميم هويات بصرية",
       desc: "نصمم هوية بصرية متكاملة تعكس شخصية علامتك وتترك أثرًا بصريًا فخمًا ودائمًا.",
@@ -115,7 +126,7 @@ export default function Services() {
   );
 }
 
-function ServiceCard({ item, i }) {
+function ServiceCard({ item, i }: ServiceCardProps) {
   return (
     <motion.div
       key={i}
