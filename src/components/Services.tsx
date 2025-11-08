@@ -1,4 +1,5 @@
 "use client";
+import React from "react";
 import { motion } from "framer-motion";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination } from "swiper/modules";
@@ -9,7 +10,7 @@ import { PenTool, Palette, Monitor, Lightbulb } from "lucide-react";
 type Service = {
   title: string;
   desc: string;
-  icon: JSX.Element;
+  icon: React.ReactNode;
 };
 
 interface ServiceCardProps {
