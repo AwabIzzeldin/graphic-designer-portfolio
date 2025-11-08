@@ -3,7 +3,17 @@ import { motion } from "framer-motion";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 
-const works = [
+type Work = {
+  title: string;
+  img: string;
+};
+
+interface WorkCardProps {
+  w: Work;
+  i: number;
+}
+
+const works: Work[] = [
   { title: "Project 1", img: "/images/hero1.jpg" },
   { title: "Project 2", img: "/images/hero2.jpg" },
   { title: "Project 3", img: "/images/hero3.jpg" },
@@ -18,11 +28,9 @@ export default function Projects() {
       id="projects"
       className="relative py-24 md:py-32 bg-gradient-to-b from-[#0D0A07] via-[#1A0033]/40 to-[#0D0A07] overflow-hidden"
     >
-      {/* ✨ خلفية توهج برتقالي ناعم */}
       <div className="absolute -bottom-20 right-0 w-[40vw] h-[40vw] bg-[#e86327]/20 blur-[120px] rounded-full opacity-60 -z-10" />
 
       <div className="mx-auto w-[90%] md:w-[85%] xl:w-[80%]">
-        {/* العنوان */}
         <div className="flex items-end justify-between mb-12">
           <h2 className="text-4xl md:text-5xl font-semibold relative">
             الأعمال
@@ -36,7 +44,6 @@ export default function Projects() {
           </a>
         </div>
 
-        {/* ✅ نسخة الموبايل: كاروسيل */}
         <div className="md:hidden">
           <Swiper
             spaceBetween={24}
@@ -53,7 +60,6 @@ export default function Projects() {
           </Swiper>
         </div>
 
-        {/* ✅ نسخة الديسكتوب: شبكة بطاقات */}
         <div className="hidden md:grid grid-cols-2 lg:grid-cols-3 gap-8">
           {works.map((w, i) => (
             <WorkCard key={i} w={w} i={i} />
@@ -64,26 +70,22 @@ export default function Projects() {
   );
 }
 
-/* ✅ مكون البطاقة (مُعاد استخدامه في الكاروسيل والشبكة) */
-function WorkCard({ w, i }) {
+function WorkCard({ w, i }: WorkCardProps) {
   return (
     <motion.div
       whileHover={{ scale: 1.03 }}
       transition={{ duration: 0.4 }}
       className="group relative rounded-3xl overflow-hidden border border-white/10 bg-white/5 backdrop-blur-md hover:border-[#e86327]/40 transition-all"
     >
-      {/* صورة العمل */}
       <div className="aspect-[16/10] overflow-hidden relative">
         <img
           src={w.img}
           alt={w.title}
           className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out"
         />
-        {/* overlay cinematic shadow */}
         <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent opacity-80 group-hover:opacity-60 transition-all" />
       </div>
 
-      {/* النص + التفاعل */}
       <div className="absolute inset-0 flex flex-col items-center justify-end p-6 text-center">
         <motion.h3
           initial={{ opacity: 0, y: 20 }}

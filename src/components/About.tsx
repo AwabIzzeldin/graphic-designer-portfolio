@@ -7,11 +7,9 @@ export default function About() {
       id="about"
       className="relative min-h-[80vh] flex items-center overflow-hidden bg-gradient-to-b from-[#0D0A07] via-[#1A0033]/40 to-[#0D0A07]"
     >
-      {/* خلفية التوهج */}
       <div className="absolute inset-0 bg-[#e86327]/10 blur-[120px] -z-10" />
 
       <div className="mx-auto w-[90%] md:w-[85%] xl:w-[80%] grid md:grid-cols-[1.2fr_0.8fr] gap-16 items-center">
-        {/* النص */}
         <motion.div
           initial={{ opacity: 0, x: 50 }}
           whileInView={{ opacity: 1, x: 0 }}
@@ -69,7 +67,6 @@ export default function About() {
           </motion.div>
         </motion.div>
 
-        {/* الصورة */}
         <motion.div
           initial={{ opacity: 0, x: -50 }}
           whileInView={{ opacity: 1, x: 0 }}
@@ -90,7 +87,6 @@ export default function About() {
             <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
           </motion.div>
 
-          {/* توهج خلف الصورة */}
           <motion.div
             className="absolute -bottom-8 -left-8 h-40 w-40 bg-[#e86327]/40 blur-3xl rounded-full opacity-60"
             animate={{

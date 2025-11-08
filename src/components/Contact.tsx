@@ -7,7 +7,6 @@ export default function Contact() {
       id="contact"
       className="relative py-16 md:py-20 bg-gradient-to-b from-[#0D0A07] via-[#1A0033]/40 to-[#0D0A07] overflow-hidden"
     >
-      {/* خلفية توهج برتقالي */}
       <div className="absolute inset-0 bg-gradient-to-t from-[#e86327]/5 via-transparent to-transparent blur-[120px] -z-10" />
 
       <div className="mx-auto w-[90%] md:w-[85%] xl:w-[80%] text-center">
