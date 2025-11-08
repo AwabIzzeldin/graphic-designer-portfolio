@@ -42,7 +42,6 @@ const testimonials = [
     img: "/images/designer-portrait.jpg",
     quote: "النتيجة كانت فخمة جدًا.",
   },
-  
 ];
 
 export default function Testimonials() {
@@ -51,19 +50,12 @@ export default function Testimonials() {
       id="testimonials"
       className="relative py-20 md:py-28 bg-gradient-to-b from-[#0D0A07] via-[#1A0033]/40 to-[#0D0A07] overflow-hidden"
     >
-      {/* خلفية توهج ناعم */}
       <div className="absolute -top-20 left-1/2 -translate-x-1/2 w-[60vw] h-[60vw] bg-[#e86327]/10 blur-[140px] rounded-full opacity-60 -z-10" />
 
       <div className="mx-auto w-[90%] md:w-[85%] xl:w-[80%] text-center mb-16">
-        <motion.h2
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="text-4xl md:text-5xl font-semibold mb-4"
-        >
+        <h2 className="text-4xl md:text-5xl font-semibold mb-4">
           آراء العملاء
-        </motion.h2>
+        </h2>
         <p className="text-white/60 max-w-2xl mx-auto text-base md:text-lg">
           تجارب عملاء حقيقية عكست رؤيتهم البصرية وتحولت إلى قصص نجاح.
         </p>
@@ -86,7 +78,7 @@ export default function Testimonials() {
         >
           {testimonials.map((t, i) => (
             <SwiperSlide key={i}>
-              <TestimonialCard t={t} i={i} />
+              <TestimonialCard t={t} />
             </SwiperSlide>
           ))}
         </Swiper>
@@ -95,11 +87,10 @@ export default function Testimonials() {
       {/* ✅ شبكة بطاقات للشاشات المتوسطة وفوق */}
       <div className="hidden md:grid grid-cols-2 lg:grid-cols-3 gap-8 w-[90%] md:w-[80%] mx-auto">
         {testimonials.map((t, i) => (
-          <TestimonialCard key={i} t={t} i={i} />
+          <TestimonialCard key={i} t={t} />
         ))}
       </div>
 
-      {/* ⚙️ Pagination Styles */}
       <style jsx global>{`
         .swiper-pagination {
           position: absolute;
@@ -137,21 +128,11 @@ type Testimonial = {
 
 interface TestimonialCardProps {
   t: Testimonial;
-  i: number;
 }
 
-function TestimonialCard({ t, i }: TestimonialCardProps) {
-
+function TestimonialCard({ t }: TestimonialCardProps) {
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 30 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.6, delay: i * 0.1 }}
-      whileHover={{ scale: 1.02 }}
-      className="flex flex-col md:flex-row items-center gap-6 p-8 md:p-10 rounded-3xl bg-white/5 border border-white/10 backdrop-blur-xl text-left transition hover:border-[#e86327]/40 hover:bg-white/10 shadow-[0_0_25px_rgba(232,99,39,0.1)]"
-    >
-      {/* صورة العميل */}
+    <div className="flex flex-col md:flex-row items-center gap-6 p-8 md:p-10 rounded-3xl bg-white/5 border border-white/10 backdrop-blur-xl text-left transition hover:border-[#e86327]/40 hover:bg-white/10 shadow-[0_0_25px_rgba(232,99,39,0.1)]">
       <div className="flex-shrink-0">
         <div className="w-20 h-20 md:w-24 md:h-24 rounded-full overflow-hidden border border-[#e86327]/30 shadow-[0_0_15px_rgba(232,99,39,0.2)]">
           <img
@@ -161,8 +142,6 @@ function TestimonialCard({ t, i }: TestimonialCardProps) {
           />
         </div>
       </div>
-
-      {/* النص */}
       <div>
         <p className="text-white/80 text-base md:text-lg leading-relaxed mb-4">
           “{t.quote}”
@@ -172,6 +151,6 @@ function TestimonialCard({ t, i }: TestimonialCardProps) {
           <span className="text-white/60 font-normal">| {t.role}</span>
         </div>
       </div>
-    </motion.div>
+    </div>
   );
 }

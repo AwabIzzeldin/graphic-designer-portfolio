@@ -56,10 +56,7 @@ export default function Services() {
         transition={{ duration: 0.8 }}
         className="space-y-4 mb-10"
       >
-        <p className="text-[#e86327] text-sm md:text-base uppercase tracking-[0.3em]">
-          ماذا أقدّم
-        </p>
-        <h2 className="text-4xl md:text-6xl font-semibold">الخدمات</h2>
+        <h2 className="text-4xl md:text-6xl font-semibold">خدماتي</h2>
         <p className="text-white/60 max-w-xl mx-auto text-base md:text-lg leading-relaxed">
           حلول تصميم وبرمجة واستشارات متكاملة تساعدك على بناء علامة قوية ومؤثرة.
         </p>
