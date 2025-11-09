@@ -1,5 +1,6 @@
 "use client";
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 export default function About() {
   return (
@@ -9,11 +10,11 @@ export default function About() {
                  bg-gradient-to-b from-[#0D0A07] via-[#1A0033]/40 to-[#0D0A07]
                  py-24 md:py-32"
     >
-      {/* 🔹 Lighter blur on mobile for performance */}
+      {/* Background glow */}
       <div className="absolute inset-0 bg-[#e86327]/10 blur-[80px] md:blur-[120px] -z-10" />
 
       <div className="mx-auto w-[90%] md:w-[85%] xl:w-[80%] grid md:grid-cols-[1.2fr_0.8fr] gap-12 md:gap-16 items-center">
-        {/* ✅ Animate container only once */}
+        {/* Text content */}
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -37,22 +38,33 @@ export default function About() {
             الجمال والغاية.
           </p>
 
-          <div className="mt-8 flex flex-wrap gap-3 text-sm md:text-base">
-            {["Photoshop", "Illustrator", "Figma", "After Effects", "Cinema 4D"].map(
-              (s) => (
-                <span
-                  key={s}
-                  className="px-4 py-2 rounded-full border border-white/15 bg-white/5 
-                             hover:border-[#e86327]/60 hover:text-[#e86327] transition font-medium"
-                >
-                  {s}
-                </span>
-              )
-            )}
+          {/* ✅ Only Photoshop & Illustrator — bright, glowing */}
+          <div className="mt-8 flex gap-5">
+            <div className="relative group">
+              <div className="absolute inset-0 rounded-xl bg-[#31A8FF]/40 blur-md opacity-70 group-hover:opacity-100 transition" />
+              <Image
+                src="https://upload.wikimedia.org/wikipedia/commons/a/af/Adobe_Photoshop_CC_icon.svg"
+                alt="Photoshop"
+                width={56}
+                height={56}
+                className="relative z-10 drop-shadow-[0_0_10px_rgba(49,168,255,0.8)] group-hover:scale-110 transition-transform duration-300"
+              />
+            </div>
+
+            <div className="relative group">
+              <div className="absolute inset-0 rounded-xl bg-[#FF9A00]/40 blur-md opacity-70 group-hover:opacity-100 transition" />
+              <Image
+                src="https://upload.wikimedia.org/wikipedia/commons/f/fb/Adobe_Illustrator_CC_icon.svg"
+                alt="Illustrator"
+                width={56}
+                height={56}
+                className="relative z-10 drop-shadow-[0_0_10px_rgba(255,154,0,0.8)] group-hover:scale-110 transition-transform duration-300"
+              />
+            </div>
           </div>
         </motion.div>
 
-        {/* ✅ Single motion for image wrapper only */}
+        {/* Image area */}
         <motion.div
           initial={{ opacity: 0, x: -30 }}
           whileInView={{ opacity: 1, x: 0 }}
@@ -73,7 +85,7 @@ export default function About() {
             <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
           </div>
 
-          {/* 🔹 Soft animated orange glow */}
+          {/* Animated glow */}
           <motion.div
             className="absolute -bottom-8 -left-8 h-40 w-40 bg-[#e86327]/40 blur-3xl rounded-full opacity-60"
             animate={{
