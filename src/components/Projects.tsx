@@ -1,58 +1,37 @@
 "use client";
-import { motion } from "framer-motion";
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Pagination, Navigation } from "swiper/modules";
+import { Navigation } from "swiper/modules";
+import { X } from "lucide-react";
 import "swiper/css";
-import "swiper/css/pagination";
 import "swiper/css/navigation";
 
 type Work = {
   brand: string;
   desc: string;
   service: string;
-  img: string;
+  images: string[];
 };
-
-interface WorkCardProps {
-  w: Work;
-}
 
 const works: Work[] = [
   {
     brand: "Froozy Panda",
     desc: "تصميم مرئي يعكس الانتعاش والطاقة، مع هوية مرحة ولافتة.",
     service: "تصميم هوية بصرية",
-    img: "/images/hero1.jpg",
+    images: ["/images/house1.png", "/images/house2.png", "/images/hero3.jpg"],
   },
   {
     brand: "Karma Studio",
     desc: "إعادة بناء العلامة بأسلوب راقٍ وبسيط يعكس فلسفة الجمال.",
     service: "تصميم شعار وهوية",
-    img: "/images/hero2.jpg",
+    images: ["/images/hero2.jpg", "/images/house1.png", "/images/hero4.jpg"],
   },
   {
     brand: "Mocha Café",
     desc: "علامة بصرية دافئة تجمع بين الحنين والحداثة في كل تفصيلة.",
     service: "تصميم هوية ومطبوعات",
-    img: "/images/hero3.jpg",
-  },
-  {
-    brand: "Elite Vision",
-    desc: "تجربة رقمية فاخرة تُظهر التميز في كل لمسة.",
-    service: "تطوير موقع إلكتروني",
-    img: "/images/hero4.jpg",
-  },
-  {
-    brand: "Aura Skin",
-    desc: "هوية أنثوية راقية بتدرجات ناعمة تعبّر عن النقاء والجمال.",
-    service: "تصميم هوية وشعار",
-    img: "/images/hero2.jpg",
-  },
-  {
-    brand: "Studio Wave",
-    desc: "تصميم رقمي نابض بالحركة مخصص لصناع المحتوى والإبداع.",
-    service: "تصميم سوشيال ميديا",
-    img: "/images/hero3.jpg",
+    images: ["/images/hero3.jpg", "/images/hero1.jpg", "/images/house1.png"],
   },
 ];
 
@@ -60,9 +39,9 @@ export default function Projects() {
   return (
     <section
       id="projects"
-      className="relative py-24 md:py-32 bg-gradient-to-b from-[#0D0A07] via-[#1A0033]/40 to-[#0D0A07] overflow-hidden"
+      className="relative py-24 md:py-32 bg-gradient-to-b from-[#0D0A07] via-[#1A0033]/40 to-[#0D0A07]"
     >
-      {/* 🔆 Background Glow */}
+      {/* Background glow */}
       <div className="absolute -bottom-20 right-0 w-[40vw] h-[40vw] bg-[#e86327]/20 blur-[120px] rounded-full opacity-60 -z-10" />
 
       <div className="mx-auto w-[90%] md:w-[85%] xl:w-[80%]">
@@ -72,112 +51,147 @@ export default function Projects() {
             الأعمال
             <span className="absolute -bottom-2 left-0 w-16 h-[3px] bg-[#e86327] rounded-full"></span>
           </h2>
-          <a
-            href="#contact"
-            className="text-sm text-[#e86327] hover:underline hover:brightness-125 transition"
-          >
-            اطلب مشروعًا
-          </a>
         </div>
 
-        {/* Carousel */}
-        <Swiper
-          modules={[Pagination, Navigation]}
-          spaceBetween={30}
-          slidesPerView={1.1}
-          breakpoints={{
-            768: { slidesPerView: 2 },
-            1024: { slidesPerView: 3 },
-          }}
-          pagination={{ clickable: true }}
-          navigation
-          loop
-          className="pb-16"
-        >
+        {/* Grid of cards */}
+        <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-3">
           {works.map((w, i) => (
-            <SwiperSlide key={i}>
-              <WorkCard w={w} />
-            </SwiperSlide>
+            <WorkCard key={i} w={w} />
           ))}
-        </Swiper>
-
-        {/* CTA */}
-        <div className="text-center mt-10">
-          <motion.a
-            href="#"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.97 }}
-            className="inline-block px-10 py-3 rounded-full font-medium bg-gradient-to-r from-[#e86327] to-[#ff9e4f] text-black shadow-[0_0_18px_#e86327]/50 hover:shadow-[0_0_28px_#e86327]/80 transition"
-          >
-            عرض جميع الأعمال
-          </motion.a>
         </div>
       </div>
-
-      {/* Swiper Style Customization */}
-      <style jsx global>{`
-        .swiper-pagination {
-          bottom: 0 !important;
-        }
-        .swiper-pagination-bullet {
-          background: rgba(255, 255, 255, 0.4);
-          opacity: 0.6;
-          transition: all 0.3s ease;
-        }
-        .swiper-pagination-bullet-active {
-          background: #e86327 !important;
-          width: 18px !important;
-          border-radius: 8px !important;
-          opacity: 1 !important;
-          box-shadow: 0 0 8px #e86327;
-        }
-        .swiper-button-prev,
-        .swiper-button-next {
-          color: #e86327 !important;
-          transition: opacity 0.3s;
-        }
-        .swiper-button-prev:hover,
-        .swiper-button-next:hover {
-          opacity: 0.8;
-        }
-      `}</style>
     </section>
   );
 }
 
-/* ✨ Simplified Glassy Project Card */
-function WorkCard({ w }: WorkCardProps) {
+/* ---------------- Single Card + Modal ---------------- */
+function WorkCard({ w }: { w: Work }) {
+  const [open, setOpen] = useState(false);
+
   return (
-    <div
-      className="group rounded-3xl overflow-hidden border border-white/10 bg-white/5 backdrop-blur-md 
-                 hover:border-[#e86327]/40 transition-all flex flex-col"
-    >
-      {/* Image */}
-      <div className="aspect-[16/10] relative overflow-hidden">
-        <img
-          src={w.img}
-          alt={w.brand}
-          className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent transition-all" />
+    <>
+      {/* Card */}
+      <div
+        onClick={() => setOpen(true)}
+        className="group cursor-pointer rounded-3xl overflow-hidden 
+                   border border-white/10 bg-white/[0.05] backdrop-blur-md 
+                   hover:border-[#e86327]/40 hover:shadow-[0_0_25px_rgba(232,99,39,0.25)]
+                   transition-all duration-500 ease-out flex flex-col"
+      >
+        {/* Image Section */}
+        <div className="aspect-[16/10] relative overflow-hidden">
+          <img
+            src={w.images[0]}
+            alt={w.brand}
+            className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+          />
+          {/* Overlay Tint */}
+          <div
+            className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent 
+                       group-hover:from-[#e86327]/40 group-hover:via-black/20 group-hover:to-transparent 
+                       transition-colors duration-500"
+          />
+        </div>
+
+        {/* Text Section (Box with full color shift on hover) */}
+        <div
+          className="p-6 text-left transition-all duration-500 
+                     bg-gradient-to-br from-white/[0.05] to-white/[0.02] 
+                     group-hover:from-[#e86327]/20 group-hover:to-[#ff9e4f]/25"
+        >
+          <h3
+            className="text-xl md:text-2xl font-semibold text-white mb-2 
+                       transition-colors duration-300 group-hover:text-[#e86327]"
+          >
+            {w.brand}
+          </h3>
+          <p className="text-white/70 text-sm leading-relaxed mb-3">{w.desc}</p>
+          <span
+            className="inline-block text-xs px-4 py-1.5 rounded-full 
+                       bg-[#e86327]/20 text-[#e86327] border border-[#e86327]/30"
+          >
+            {w.service}
+          </span>
+        </div>
       </div>
 
-      {/* Text Section with Glass Glow */}
-      <div
-        className="p-6 text-left bg-gradient-to-br from-white/10 via-white/5 to-[#e86327]/10 
-                   backdrop-blur-2xl border-t border-white/10"
-      >
-        <h3 className="text-xl md:text-2xl font-semibold text-white mb-2 group-hover:text-[#e86327] transition">
-          {w.brand}
-        </h3>
-        <p className="text-white/70 text-sm leading-relaxed mb-3">{w.desc}</p>
-        <span
-          className="inline-block text-xs px-4 py-1.5 rounded-full bg-[#e86327]/20 
-                     text-[#e86327] border border-[#e86327]/30 backdrop-blur-sm"
-        >
-          {w.service}
-        </span>
-      </div>
-    </div>
+      {/* Modal */}
+      <AnimatePresence>
+        {open && (
+          <>
+            {/* Background Overlay */}
+            <motion.div
+              className="fixed inset-0 bg-black/80 backdrop-blur-sm z-40"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={() => setOpen(false)}
+            />
+
+            {/* Centered Modal */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.97 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.97 }}
+              transition={{ duration: 0.4 }}
+              className="fixed inset-0 flex items-center justify-center z-50 p-4"
+            >
+<div
+  className={`
+    relative w-[95%] md:w-[85%] lg:w-[80%] h-[90vh]
+    bg-[#0D0A07]/95 rounded-3xl overflow-hidden
+    border border-[#e86327]/40 shadow-[0_0_60px_rgba(232,99,39,0.35)]
+  `}
+>
+
+                {/* Close Button */}
+                <button
+                  onClick={() => setOpen(false)}
+                  className="absolute top-5 right-5 text-white/80 hover:text-white z-50"
+                >
+                  <X size={32} />
+                </button>
+
+                {/* Swiper Gallery */}
+                <Swiper modules={[Navigation]} navigation loop className="w-full h-full">
+                  {w.images.map((img, i) => (
+                    <SwiperSlide key={i}>
+                      <div className="relative w-full h-full">
+                        <img
+                          src={img}
+                          alt={`${w.brand}-${i}`}
+                          className="w-full h-full object-cover"
+                        />
+                        {/* Overlay Caption */}
+                        <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/60 via-transparent to-transparent p-6">
+                          <h3 className="text-white text-2xl font-semibold">{w.brand}</h3>
+                          <p className="text-[#e86327] text-sm font-medium">
+                            {w.service}
+                          </p>
+                        </div>
+                      </div>
+                    </SwiperSlide>
+                  ))}
+                </Swiper>
+
+                {/* Custom Arrow Colors */}
+                <style jsx global>{`
+                  .swiper-button-prev,
+                  .swiper-button-next {
+                    color: #e86327 !important;
+                    opacity: 0.9;
+                    transition: opacity 0.3s;
+                  }
+                  .swiper-button-prev:hover,
+                  .swiper-button-next:hover {
+                    opacity: 1;
+                  }
+                `}</style>
+              </div>
+            </motion.div>
+          </>
+        )}
+      </AnimatePresence>
+    </>
   );
 }
