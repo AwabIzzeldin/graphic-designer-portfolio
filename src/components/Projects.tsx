@@ -59,6 +59,21 @@ export default function Projects() {
             <WorkCard key={i} w={w} />
           ))}
         </div>
+
+        {/* View All Works button */}
+        <div className="text-center mt-16">
+          <motion.a
+            href="#"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            className="inline-block px-10 py-3 rounded-full font-medium 
+                       bg-gradient-to-r from-[#e86327] to-[#ff9e4f] text-black 
+                       shadow-[0_0_18px_#e86327]/50 hover:shadow-[0_0_28px_#e86327]/80 
+                       transition"
+          >
+            عرض جميع الأعمال
+          </motion.a>
+        </div>
       </div>
     </section>
   );
@@ -85,7 +100,6 @@ function WorkCard({ w }: { w: Work }) {
             alt={w.brand}
             className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
           />
-          {/* Overlay Tint */}
           <div
             className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent 
                        group-hover:from-[#e86327]/40 group-hover:via-black/20 group-hover:to-transparent 
@@ -93,7 +107,7 @@ function WorkCard({ w }: { w: Work }) {
           />
         </div>
 
-        {/* Text Section (Box with full color shift on hover) */}
+        {/* Text Section (Color Shift on Hover) */}
         <div
           className="p-6 text-left transition-all duration-500 
                      bg-gradient-to-br from-white/[0.05] to-white/[0.02] 
@@ -136,14 +150,13 @@ function WorkCard({ w }: { w: Work }) {
               transition={{ duration: 0.4 }}
               className="fixed inset-0 flex items-center justify-center z-50 p-4"
             >
-<div
-  className={`
-    relative w-[95%] md:w-[85%] lg:w-[80%] h-[90vh]
-    bg-[#0D0A07]/95 rounded-3xl overflow-hidden
-    border border-[#e86327]/40 shadow-[0_0_60px_rgba(232,99,39,0.35)]
-  `}
->
-
+              <div
+                className={`
+                  relative w-[95%] md:w-[85%] lg:w-[80%] h-[90vh]
+                  bg-[#0D0A07]/95 rounded-3xl overflow-hidden
+                  border border-[#e86327]/40 shadow-[0_0_60px_rgba(232,99,39,0.35)]
+                `}
+              >
                 {/* Close Button */}
                 <button
                   onClick={() => setOpen(false)}
