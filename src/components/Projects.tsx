@@ -63,7 +63,7 @@ export default function Projects() {
         {/* View All Works button */}
         <div className="text-center mt-16">
           <motion.a
-            href="#"
+            href="/projects"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             className="inline-block px-10 py-3 rounded-full font-medium 
