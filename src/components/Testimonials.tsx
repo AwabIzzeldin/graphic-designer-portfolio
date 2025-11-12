@@ -7,40 +7,22 @@ import "swiper/css/pagination";
 
 const testimonials = [
   {
-    name: "خالد",
-    role: "مالك Froozy Panda",
+    name: "نواف آل علي",
+    role: "مدير وقف سخاء",
     img: "/images/designer-portrait.jpg",
-    quote: "النتيجة كانت فخمة جدًا.",
+    quote: "ما شاء الله تبارك الله, جميل و ممتاز, بسيط و سهل, أشكرك على جمالية العمل و بينا تعامل بإذن الله",
   },
   {
-    name: "ملك",
-    role: "مالكة Froozy Panda",
+    name: "سامي",
+    role: "المدير التنفيذي بشركة سامتيك",
     img: "/images/designer-portrait.jpg",
-    quote: "الخدمة كانت سريعة والتصميم متقن.",
+    quote: "ما شاء الله جميل جدا يا هندسة، بالتوفيق ان شاء الله إعتمد",
   },
   {
-    name: "ريم",
-    role: "صاحبة متجر Blossom",
+    name: "فيصل جلال",
+    role: "المدير التنفيذي بوكالة الفيصل للسفر والسياحة",
     img: "/images/designer-portrait.jpg",
-    quote: "تصميم احترافي ومظهر فاخر جدًا.",
-  },
-  {
-    name: "خالد",
-    role: "مالك Brandify",
-    img: "/images/designer-portrait.jpg",
-    quote: "التعاون كان سلس والنتيجة مذهلة.",
-  },
-  {
-    name: "نورة",
-    role: "مؤسسة Aura Studio",
-    img: "/images/designer-portrait.jpg",
-    quote: "فهم سريع للهوية وتنفيذ بجودة عالية.",
-  },
-  {
-    name: "ليان",
-    role: "صاحبة Minimal Touch",
-    img: "/images/designer-portrait.jpg",
-    quote: "النتيجة كانت أفضل من المتوقع.",
+    quote: "ما شاء الله اللهم بارك، هذا افضل من الريفرنس الي اعطيناك يعني حقيقي الله يعطيك الف عافية ولنا تعامل مستمر أكيد بإذن الله، إعتمد.",
   },
 ];
 

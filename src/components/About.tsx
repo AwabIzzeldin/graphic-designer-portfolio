@@ -43,22 +43,22 @@ export default function About() {
             <div className="relative group">
               <div className="absolute inset-0 rounded-xl bg-[#31A8FF]/40 blur-md opacity-70 group-hover:opacity-100 transition" />
               <Image
-                src="https://upload.wikimedia.org/wikipedia/commons/a/af/Adobe_Photoshop_CC_icon.svg"
-                alt="Photoshop"
-                width={56}
-                height={56}
-                className="relative z-10 drop-shadow-[0_0_10px_rgba(49,168,255,0.8)] group-hover:scale-110 transition-transform duration-300"
+                src="/icons/illustrator.png"
+                alt="illustrator"
+                width={80}
+                height={80}
+                className="relative z-10 drop-shadow-[0_0_10px_rgba(0,0,0,0,0)] group-hover:scale-110 transition-transform duration-300"
               />
             </div>
 
             <div className="relative group">
               <div className="absolute inset-0 rounded-xl bg-[#FF9A00]/40 blur-md opacity-70 group-hover:opacity-100 transition" />
               <Image
-                src="https://upload.wikimedia.org/wikipedia/commons/f/fb/Adobe_Illustrator_CC_icon.svg"
-                alt="Illustrator"
-                width={56}
-                height={56}
-                className="relative z-10 drop-shadow-[0_0_10px_rgba(255,154,0,0.8)] group-hover:scale-110 transition-transform duration-300"
+                src="/icons/photoshop.png"
+                alt="photoshop"
+                width={80}
+                height={80}
+                className="relative z-10 drop-shadow-[0_0_10px_rgba(0,0,0,0.8)] group-hover:scale-110 transition-transform duration-300"
               />
             </div>
           </div>

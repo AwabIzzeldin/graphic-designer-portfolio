@@ -18,18 +18,18 @@ const projects = {
   "Visual Identity": [
     {
       title: "Froozy Panda",
-      img: "/images/hero1.jpg",
+      img: "/images/froozypanda/froozy-preview.jpg",
       service: "Brand Identity",
       gallery: ["/images/hero1.jpg", "/images/hero2.jpg", "/images/hero3.jpg"],
     },
     {
-      title: "Aura Skin",
-      img: "/images/hero2.jpg",
+      title: "Dakina Coffee",
+      img: "/images/dakina/dakina-preview.png",
       service: "Packaging Design",
       gallery: ["/images/hero2.jpg", "/images/hero4.jpg", "/images/hero1.jpg"],
     },
         {
-      title: "Aura Skin",
+      title: "وقف سخاء",
       img: "/images/hero2.jpg",
       service: "Packaging Design",
       gallery: ["/images/hero2.jpg", "/images/hero4.jpg", "/images/hero1.jpg"],

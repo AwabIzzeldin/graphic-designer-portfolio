@@ -11,7 +11,8 @@ type Work = {
   brand: string;
   desc: string;
   service: string;
-  media: string[]; // .jpg, .png, .gif, .mp4, etc.
+  preview: string; // static preview for card
+  media: string[]; // full gallery (videos, gifs, images)
 };
 
 const works: Work[] = [
@@ -19,22 +20,21 @@ const works: Work[] = [
     brand: "Froozy Panda",
     desc: "تصميم مرئي يعكس الانتعاش والطاقة، مع هوية مرحة ولافتة.",
     service: "تصميم هوية بصرية",
-    media: [
-      "/images/dakna-grid.png",
-      "/videos/panda.mp4", // ✅ GIF works now
-      "/images/house1.png",
-    ],
+    preview: "/images/froozypanda/froozy-preview.jpg",
+    media: ["/images/froozypanda/froozy-grid1.png", "/images/froozypanda/panda.mp4", "/images/froozypanda/froozy-grid2.png"],
   },
   {
-    brand: "Karma Studio",
+    brand: "Dakina Coffee",
     desc: "إعادة بناء العلامة بأسلوب راقٍ وبسيط يعكس فلسفة الجمال.",
     service: "تصميم شعار وهوية",
+    preview: "/images/dakina/dakina-preview.png",
     media: ["/images/hero2.jpg", "/images/house1.png", "/videos/karma.gif"],
   },
   {
-    brand: "Mocha Café",
+    brand: "Lumix Solutions",
     desc: "علامة بصرية دافئة تجمع بين الحنين والحداثة في كل تفصيلة.",
     service: "تصميم هوية ومطبوعات",
+    preview: "/images/lumix-preview.png",
     media: ["/images/hero3.jpg", "/images/hero1.jpg", "/videos/mocha.mp4"],
   },
 ];
@@ -88,11 +88,8 @@ function WorkCard({ w }: { w: Work }) {
   const [open, setOpen] = useState(false);
   const videoRefs = useRef<HTMLVideoElement[]>([]);
 
-  // 🧩 Pause videos when modal closes
   useEffect(() => {
-    if (!open) {
-      videoRefs.current.forEach((v) => v && v.pause());
-    }
+    if (!open) videoRefs.current.forEach((v) => v && v.pause());
   }, [open]);
 
   return (
@@ -105,9 +102,10 @@ function WorkCard({ w }: { w: Work }) {
                    hover:border-[#e86327]/40 hover:shadow-[0_0_25px_rgba(232,99,39,0.25)]
                    transition-all duration-500 ease-out flex flex-col"
       >
+        {/* 🔹 Static Preview Image inside card */}
         <div className="aspect-[16/10] relative overflow-hidden">
           <img
-            src={w.media[0]}
+            src={w.preview}
             alt={w.brand}
             loading="lazy"
             className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
@@ -119,6 +117,7 @@ function WorkCard({ w }: { w: Work }) {
           />
         </div>
 
+        {/* Text Section */}
         <div
           className="p-6 text-left transition-all duration-500 
                      bg-gradient-to-br from-white/[0.05] to-white/[0.02] 
@@ -144,7 +143,6 @@ function WorkCard({ w }: { w: Work }) {
       <AnimatePresence>
         {open && (
           <>
-            {/* Overlay */}
             <motion.div
               className="fixed inset-0 bg-black/80 backdrop-blur-sm z-40"
               initial={{ opacity: 0 }}
@@ -153,7 +151,6 @@ function WorkCard({ w }: { w: Work }) {
               onClick={() => setOpen(false)}
             />
 
-            {/* Centered Modal */}
             <motion.div
               initial={{ opacity: 0, scale: 0.97 }}
               animate={{ opacity: 1, scale: 1 }}
@@ -162,7 +159,7 @@ function WorkCard({ w }: { w: Work }) {
               className="fixed inset-0 flex items-center justify-center z-50 p-4"
             >
               <div
-                className={`relative w-[95%] md:w-[85%] lg:w-[80%] max-h-[90vh] bg-[#0D0A07]/95 rounded-3xl overflow-hidden border border-[#e86327]/40 shadow-[0_0_60px_rgba(232,99,39,0.35)] flex items-center justify-center`}
+                className="relative w-[95%] md:w-[85%] lg:w-[80%] max-h-[90vh] bg-[#0D0A07]/95 rounded-3xl overflow-hidden border border-[#e86327]/40 shadow-[0_0_60px_rgba(232,99,39,0.35)] flex items-center justify-center"
               >
                 {/* Close Button */}
                 <button
@@ -175,8 +172,7 @@ function WorkCard({ w }: { w: Work }) {
                 {/* Swiper Gallery */}
                 <Swiper modules={[Navigation]} navigation loop className="w-full h-full">
                   {w.media.map((file, i) => {
-                    const isVideo =
-                      file.endsWith(".mp4") || file.endsWith(".webm"); // ✅ GIFs now treated as images
+                    const isVideo = file.endsWith(".mp4") || file.endsWith(".webm");
                     return (
                       <SwiperSlide key={i}>
                         <div className="flex items-center justify-center w-full h-full bg-black relative">

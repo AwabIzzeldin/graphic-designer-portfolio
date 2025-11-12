@@ -1,5 +1,62 @@
 @import "tailwindcss";
 
+/* 🅰️ Arabic–English Brand Fonts from /public/fonts */
+
+@font-face {
+  font-family: "Bukra";
+  src: url("/fonts/29ltbukralight.ttf") format("truetype");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Bukra";
+  src: url("/fonts/29ltbukraregular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Bukra";
+  src: url("/fonts/29ltbukrabold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Bukra";
+  src: url("/fonts/29ltbukrabolditalic.ttf") format("truetype");
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Kaff";
+  src: url("/fonts/alfont_com_29LT-Kaff-Medium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* 🌍 Font variables */
+:root {
+  --font-bukra: "Bukra", sans-serif;
+  --font-kaff: "Kaff", sans-serif;
+}
+
+/* Optional: switch automatically by language */
+:lang(ar) {
+  font-family: var(--font-bukra);
+}
+
+:lang(en) {
+  font-family: var(--font-kaff);
+}
+
 :root {
   --background: #ffffff;
   --foreground: #171717;

@@ -53,7 +53,7 @@ export default function Contact() {
           <div className="col-span-1">
             <input
               type="email"
-              placeholder="البريد الإلكتروني"
+              placeholder="رقم التواصل (واتساب)"
               className="w-full bg-white/5 border border-white/10 rounded-xl px-5 py-4 text-white placeholder-white/40 focus:outline-none focus:border-[#e86327]/60 focus:shadow-[0_0_15px_#e86327] transition"
             />
           </div>
