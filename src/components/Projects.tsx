@@ -171,12 +171,15 @@ function WorkCard({ w }: { w: Work }) {
                   {w.images.map((img, i) => (
                     <SwiperSlide key={i}>
                       <div className="relative w-full h-full flex items-center justify-center bg-black">
-                        {/* Fixed: Show full image smoothly */}
-                        <img
-                          src={img}
-                          alt={`${w.brand}-${i}`}
-                          className={`max-h-[85vh] w-auto object-contain mx-auto transition-transform duration-700 ease-out`}
-                        />
+                        {/* 🧩 Centered Image Fix */}
+                        <div className="flex items-center justify-center w-full h-full">
+                          <img
+                            src={img}
+                            alt={`${w.brand}-${i}`}
+                            className="max-h-[85vh] max-w-[95%] object-contain transition-transform duration-700 ease-out"
+                          />
+                        </div>
+
                         {/* Overlay Caption */}
                         <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/60 via-transparent to-transparent p-6">
                           <h3 className="text-white text-2xl font-semibold">{w.brand}</h3>
