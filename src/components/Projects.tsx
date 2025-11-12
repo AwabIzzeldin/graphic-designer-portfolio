@@ -19,7 +19,7 @@ const works: Work[] = [
     brand: "Froozy Panda",
     desc: "تصميم مرئي يعكس الانتعاش والطاقة، مع هوية مرحة ولافتة.",
     service: "تصميم هوية بصرية",
-    images: ["/images/house1.png", "/images/house2.png", "/images/hero3.jpg"],
+    images: ["/images/dakna-grid.png", "/images/dakna-grid2.png", "/images/hero3.jpg"],
   },
   {
     brand: "Karma Studio",
