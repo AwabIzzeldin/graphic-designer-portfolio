@@ -73,16 +73,15 @@ export default function About() {
           className="relative flex justify-center md:justify-end will-change-[transform,opacity]"
         >
           <div
-            className="relative w-[85%] md:w-[90%] rounded-[2rem] overflow-hidden 
-                       border border-white/10 shadow-[0_0_40px_rgba(232,99,39,0.25)] 
-                       md:hover:shadow-[0_0_80px_rgba(232,99,39,0.35)] transition"
+            className="relative w-[90%] md:w-[95%] rounded-[2rem] overflow-hidden 
+                       "
           >
             <img
-              src="/images/designer.png"
+              src="/images/myprofilepic.png"
               alt="صورة أبوبكر"
               className="w-full h-full object-cover"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+            <div className="absolute inset-0 " />
           </div>
 
           {/* Animated glow */}

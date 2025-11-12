@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
@@ -11,7 +11,7 @@ type Work = {
   brand: string;
   desc: string;
   service: string;
-  images: string[];
+  media: string[]; // .jpg, .png, .gif, .mp4, etc.
 };
 
 const works: Work[] = [
@@ -19,19 +19,23 @@ const works: Work[] = [
     brand: "Froozy Panda",
     desc: "تصميم مرئي يعكس الانتعاش والطاقة، مع هوية مرحة ولافتة.",
     service: "تصميم هوية بصرية",
-    images: ["/images/dakna-grid.png", "/images/dakna-grid2.png", "/images/hero3.jpg"],
+    media: [
+      "/images/dakna-grid.png",
+      "/videos/panda.mp4", // ✅ GIF works now
+      "/images/house1.png",
+    ],
   },
   {
     brand: "Karma Studio",
     desc: "إعادة بناء العلامة بأسلوب راقٍ وبسيط يعكس فلسفة الجمال.",
     service: "تصميم شعار وهوية",
-    images: ["/images/hero2.jpg", "/images/house1.png", "/images/hero4.jpg"],
+    media: ["/images/hero2.jpg", "/images/house1.png", "/videos/karma.gif"],
   },
   {
     brand: "Mocha Café",
     desc: "علامة بصرية دافئة تجمع بين الحنين والحداثة في كل تفصيلة.",
     service: "تصميم هوية ومطبوعات",
-    images: ["/images/hero3.jpg", "/images/hero1.jpg", "/images/house1.png"],
+    media: ["/images/hero3.jpg", "/images/hero1.jpg", "/videos/mocha.mp4"],
   },
 ];
 
@@ -82,6 +86,14 @@ export default function Projects() {
 /* ---------------- Single Card + Modal ---------------- */
 function WorkCard({ w }: { w: Work }) {
   const [open, setOpen] = useState(false);
+  const videoRefs = useRef<HTMLVideoElement[]>([]);
+
+  // 🧩 Pause videos when modal closes
+  useEffect(() => {
+    if (!open) {
+      videoRefs.current.forEach((v) => v && v.pause());
+    }
+  }, [open]);
 
   return (
     <>
@@ -93,11 +105,11 @@ function WorkCard({ w }: { w: Work }) {
                    hover:border-[#e86327]/40 hover:shadow-[0_0_25px_rgba(232,99,39,0.25)]
                    transition-all duration-500 ease-out flex flex-col"
       >
-        {/* Image Section */}
         <div className="aspect-[16/10] relative overflow-hidden">
           <img
-            src={w.images[0]}
+            src={w.media[0]}
             alt={w.brand}
+            loading="lazy"
             className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
           />
           <div
@@ -107,7 +119,6 @@ function WorkCard({ w }: { w: Work }) {
           />
         </div>
 
-        {/* Text Section */}
         <div
           className="p-6 text-left transition-all duration-500 
                      bg-gradient-to-br from-white/[0.05] to-white/[0.02] 
@@ -162,36 +173,52 @@ function WorkCard({ w }: { w: Work }) {
                 </button>
 
                 {/* Swiper Gallery */}
-                <Swiper
-                  modules={[Navigation]}
-                  navigation
-                  loop
-                  className="w-full h-full flex items-center justify-center"
-                >
-                  {w.images.map((img, i) => (
-                    <SwiperSlide key={i}>
-                      <div className="relative w-full h-full flex items-center justify-center bg-black">
-                        {/* 🧩 Centered Image Fix */}
-                        <div className="flex items-center justify-center w-full h-full">
-                          <img
-                            src={img}
-                            alt={`${w.brand}-${i}`}
-                            className="max-h-[85vh] max-w-[95%] object-contain transition-transform duration-700 ease-out"
-                          />
+                <Swiper modules={[Navigation]} navigation loop className="w-full h-full">
+                  {w.media.map((file, i) => {
+                    const isVideo =
+                      file.endsWith(".mp4") || file.endsWith(".webm"); // ✅ GIFs now treated as images
+                    return (
+                      <SwiperSlide key={i}>
+                        <div className="flex items-center justify-center w-full h-full bg-black relative">
+                          {isVideo ? (
+                            <video
+                              ref={(el) => {
+                                if (el) videoRefs.current[i] = el;
+                              }}
+                              src={file}
+                              autoPlay
+                              loop
+                              muted
+                              playsInline
+                              className="max-h-[85vh] max-w-[90%] object-contain rounded-xl"
+                            />
+                          ) : (
+                            <img
+                              src={file}
+                              alt={`${w.brand}-${i}`}
+                              loading="lazy"
+                              className="max-h-[85vh] max-w-[90%] object-contain transition-transform duration-700 ease-out"
+                            />
+                          )}
+                          {/* Overlay Caption */}
+                          <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/60 via-transparent to-transparent p-6 text-center">
+                            <h3 className="text-white text-2xl font-semibold">{w.brand}</h3>
+                            <p className="text-[#e86327] text-sm font-medium">{w.service}</p>
+                          </div>
                         </div>
-
-                        {/* Overlay Caption */}
-                        <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/60 via-transparent to-transparent p-6">
-                          <h3 className="text-white text-2xl font-semibold">{w.brand}</h3>
-                          <p className="text-[#e86327] text-sm font-medium">{w.service}</p>
-                        </div>
-                      </div>
-                    </SwiperSlide>
-                  ))}
+                      </SwiperSlide>
+                    );
+                  })}
                 </Swiper>
 
-                {/* Custom Arrow Colors */}
+                {/* Swiper Styling */}
                 <style jsx global>{`
+                  .swiper-slide {
+                    display: flex !important;
+                    align-items: center !important;
+                    justify-content: center !important;
+                    background: #000;
+                  }
                   .swiper-button-prev,
                   .swiper-button-next {
                     color: #e86327 !important;
