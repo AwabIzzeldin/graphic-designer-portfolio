@@ -107,7 +107,7 @@ function WorkCard({ w }: { w: Work }) {
           />
         </div>
 
-        {/* Text Section (Color Shift on Hover) */}
+        {/* Text Section */}
         <div
           className="p-6 text-left transition-all duration-500 
                      bg-gradient-to-br from-white/[0.05] to-white/[0.02] 
@@ -133,7 +133,7 @@ function WorkCard({ w }: { w: Work }) {
       <AnimatePresence>
         {open && (
           <>
-            {/* Background Overlay */}
+            {/* Overlay */}
             <motion.div
               className="fixed inset-0 bg-black/80 backdrop-blur-sm z-40"
               initial={{ opacity: 0 }}
@@ -151,11 +151,7 @@ function WorkCard({ w }: { w: Work }) {
               className="fixed inset-0 flex items-center justify-center z-50 p-4"
             >
               <div
-                className={`
-                  relative w-[95%] md:w-[85%] lg:w-[80%] h-[90vh]
-                  bg-[#0D0A07]/95 rounded-3xl overflow-hidden
-                  border border-[#e86327]/40 shadow-[0_0_60px_rgba(232,99,39,0.35)]
-                `}
+                className={`relative w-[95%] md:w-[85%] lg:w-[80%] max-h-[90vh] bg-[#0D0A07]/95 rounded-3xl overflow-hidden border border-[#e86327]/40 shadow-[0_0_60px_rgba(232,99,39,0.35)] flex items-center justify-center`}
               >
                 {/* Close Button */}
                 <button
@@ -166,21 +162,25 @@ function WorkCard({ w }: { w: Work }) {
                 </button>
 
                 {/* Swiper Gallery */}
-                <Swiper modules={[Navigation]} navigation loop className="w-full h-full">
+                <Swiper
+                  modules={[Navigation]}
+                  navigation
+                  loop
+                  className="w-full h-full flex items-center justify-center"
+                >
                   {w.images.map((img, i) => (
                     <SwiperSlide key={i}>
-                      <div className="relative w-full h-full">
+                      <div className="relative w-full h-full flex items-center justify-center bg-black">
+                        {/* Fixed: Show full image smoothly */}
                         <img
                           src={img}
                           alt={`${w.brand}-${i}`}
-                          className="w-full h-full object-cover"
+                          className={`max-h-[85vh] w-auto object-contain mx-auto transition-transform duration-700 ease-out`}
                         />
                         {/* Overlay Caption */}
                         <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/60 via-transparent to-transparent p-6">
                           <h3 className="text-white text-2xl font-semibold">{w.brand}</h3>
-                          <p className="text-[#e86327] text-sm font-medium">
-                            {w.service}
-                          </p>
+                          <p className="text-[#e86327] text-sm font-medium">{w.service}</p>
                         </div>
                       </div>
                     </SwiperSlide>
@@ -192,7 +192,7 @@ function WorkCard({ w }: { w: Work }) {
                   .swiper-button-prev,
                   .swiper-button-next {
                     color: #e86327 !important;
-                    opacity: 0.9;
+                    opacity: 0.85;
                     transition: opacity 0.3s;
                   }
                   .swiper-button-prev:hover,
