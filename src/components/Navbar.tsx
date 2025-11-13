@@ -59,7 +59,7 @@ export default function Navbar() {
     { name: "الخدمات", href: "#services", id: "services", internal: true },
     { name: "الأعمال", href: "/projects", id: "projects", internal: false },
     { name: "آراء العملاء", href: "#testimonials", id: "testimonials", internal: true },
-    { name: "تواصل", href: "#contact", id: "contact", internal: true },
+    { name: "تواصل", href: "/dakina", id: "contact", internal: false },
   ];
 
   // Route hash links correctly (even from /projects)
