@@ -1,0 +1,116 @@
+"use client";
+
+import Image from "next/image";
+import { motion } from "framer-motion";
+
+export default function DakinaCaseStudy() {
+  const images = [
+    "/images/dakina/dakina-2.png",
+    "/images/dakina/dakina-1.png",
+    "/images/dakina/dakina-3.mp4",
+    "/images/dakina/dakina-4.mp4",
+    "/images/dakina/dakina-5.png",
+    "/images/dakina/dakina-6.png",
+    "/images/dakina/dakina-7.png",
+    "/images/dakina/dakina-8.mp4",
+    "/images/dakina/dakina-9.png",
+    "/images/dakina/dakina-10.png",
+    "/images/dakina/dakina-11.png",
+    "/images/dakina/dakina-12.png",
+    
+  ];
+
+  return (
+    <main className="bg-[#0D0A07] text-white">
+
+      {/* ---------------- HERO ---------------- */}
+      <section className="relative h-[85vh] w-full flex items-center justify-center text-center px-6">
+
+        {/* Background Image */}
+        <img
+          src="/images/dakina/dakina-1.png"
+          alt="Dakina Hero"
+          className="absolute inset-0 w-full h-full object-cover brightness-[0.55] blur-[2px]"
+        />
+
+        {/* Gradient Overlay */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/20 to-[#0D0A07]/80"></div>
+
+        {/* Text */}
+        <div className="relative z-10 max-w-2xl mx-auto">
+          <motion.h1
+            initial={{ opacity: 0, y: 25 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1 }}
+            className="text-5xl md:text-7xl font-semibold mb-4"
+          >
+            Dakina Coffee Shop
+          </motion.h1>
+
+          <motion.p
+            initial={{ opacity: 0, y: 25 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.3, duration: 1 }}
+            className="text-lg md:text-xl text-white/80 leading-relaxed"
+          >
+            Rebuilding the brand with an elegant, minimal and modern identity 
+            inspired by calm coffee aesthetics.
+          </motion.p>
+        </div>
+      </section>
+
+      {/* ---------------- PACKAGE CONTENT ---------------- */}
+      <section className="w-[90%] md:w-[75%] mx-auto py-20 space-y-6">
+        <h2 className="text-2xl md:text-3xl font-semibold mb-4">Package Content</h2>
+
+        <div className="text-white/80 leading-relaxed text-lg space-y-2">
+          <p>• Logo Redesign</p>
+          <p>• Brand Identity System</p>
+          <p>• Color Palette & Typography</p>
+          <p>• Packaging Mockups</p>
+          <p>• Social Media Visuals</p>
+        </div>
+      </section>
+
+      {/* ---------------- FULL WIDTH IMAGES / VIDEOS ---------------- */}
+      <section className="space-y-8 pb-20">
+        {images.map((src, i) => {
+          const isVideo =
+            src.endsWith(".mp4") ||
+            src.endsWith(".webm") ||
+            src.endsWith(".mov");
+
+          return (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              transition={{ duration: 0.7 }}
+              viewport={{ once: true }}
+              className="w-full"
+            >
+              {isVideo ? (
+                <video
+                  src={src}
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  className="w-full h-auto object-cover rounded-none"
+                />
+              ) : (
+                <Image
+                  src={src}
+                  alt={`Dakina image ${i}`}
+                  width={2000}
+                  height={1200}
+                  className="w-full h-auto object-cover"
+                />
+              )}
+            </motion.div>
+          );
+        })}
+      </section>
+    </main>
+  );
+}
