@@ -44,7 +44,7 @@ export default function DakinaCaseStudy() {
             transition={{ duration: 1 }}
             className="text-5xl md:text-7xl font-semibold mb-4"
           >
-            Dakina Coffee Shop
+            قهوة "داكنة"
           </motion.h1>
 
           <motion.p
@@ -53,22 +53,22 @@ export default function DakinaCaseStudy() {
             transition={{ delay: 0.3, duration: 1 }}
             className="text-lg md:text-xl text-white/80 leading-relaxed"
           >
-            Rebuilding the brand with an elegant, minimal and modern identity 
-            inspired by calm coffee aesthetics.
+            علامة تجارية بهوية أنيقة، بسيطة، وحديثة
+  مستوحاة من هدوء أجواء القهوة.
           </motion.p>
         </div>
       </section>
 
       {/* ---------------- PACKAGE CONTENT ---------------- */}
       <section className="w-[90%] md:w-[75%] mx-auto py-20 space-y-6">
-        <h2 className="text-2xl md:text-3xl font-semibold mb-4">Package Content</h2>
+        <h2 className="text-2xl md:text-3xl font-semibold mb-4">المحتويات</h2>
 
         <div className="text-white/80 leading-relaxed text-lg space-y-2">
-          <p>• Logo Redesign</p>
-          <p>• Brand Identity System</p>
-          <p>• Color Palette & Typography</p>
-          <p>• Packaging Mockups</p>
-          <p>• Social Media Visuals</p>
+          <p>• تصميم شعار</p>
+          <p>• تطوير هوية بصرية</p>
+          <p>• بوسترات اعلانات</p>
+          <p>• Mockups</p>
+          <p>• بوسترات سوشل ميديا</p>
         </div>
       </section>
 
