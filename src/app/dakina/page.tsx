@@ -5,8 +5,8 @@ import { motion } from "framer-motion";
 
 export default function DakinaCaseStudy() {
   const images = [
-    "/images/dakina/dakina-2.png",
     "/images/dakina/dakina-1.png",
+    "/images/dakina/dakina-2.png",
     "/images/dakina/dakina-3.mp4",
     "/images/dakina/dakina-4.mp4",
     "/images/dakina/dakina-5.png",
@@ -17,9 +17,8 @@ export default function DakinaCaseStudy() {
     "/images/dakina/dakina-10.png",
     "/images/dakina/dakina-11.png",
     "/images/dakina/dakina-12.png",
-    
   ];
-
+  
   return (
     <main className="bg-[#0D0A07] text-white">
 
@@ -54,26 +53,26 @@ export default function DakinaCaseStudy() {
             className="text-lg md:text-xl text-white/80 leading-relaxed"
           >
             علامة تجارية بهوية أنيقة، بسيطة، وحديثة
-  مستوحاة من هدوء أجواء القهوة.
+            مستوحاة من هدوء أجواء القهوة.
           </motion.p>
         </div>
       </section>
 
       {/* ---------------- PACKAGE CONTENT ---------------- */}
-      <section className="w-[90%] md:w-[75%] mx-auto py-20 space-y-6">
+      <section className="w-[90%] md:w-[75%] mx-auto py-20 space-y-6 text-right">
         <h2 className="text-2xl md:text-3xl font-semibold mb-4">المحتويات</h2>
 
         <div className="text-white/80 leading-relaxed text-lg space-y-2">
-          <p>• تصميم شعار</p>
-          <p>• تطوير هوية بصرية</p>
-          <p>• بوسترات اعلانات</p>
-          <p>• Mockups</p>
-          <p>• بوسترات سوشل ميديا</p>
+          <p>• تصميم الشعار</p>
+          <p>• تطوير الهوية البصرية</p>
+          <p>• بوسترات إعلانية</p>
+          <p>• نماذج Mockups</p>
+          <p>• تصاميم السوشيال ميديا</p>
         </div>
       </section>
 
-      {/* ---------------- FULL WIDTH IMAGES / VIDEOS ---------------- */}
-      <section className="space-y-8 pb-20">
+      {/* ---------------- FULL WIDTH MEDIA ---------------- */}
+      <section className="pb-0">
         {images.map((src, i) => {
           const isVideo =
             src.endsWith(".mp4") ||
@@ -96,7 +95,7 @@ export default function DakinaCaseStudy() {
                   loop
                   muted
                   playsInline
-                  className="w-full h-auto object-cover rounded-none"
+                  className="w-full h-auto object-cover"
                 />
               ) : (
                 <Image
@@ -111,6 +110,7 @@ export default function DakinaCaseStudy() {
           );
         })}
       </section>
+
     </main>
   );
 }
