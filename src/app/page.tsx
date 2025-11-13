@@ -18,7 +18,7 @@ return (
 <Projects />
 <Testimonials />
 <Contact />
-<LogoCarousel />
+{/* <LogoCarousel /> */}
 <Footer />
 </main>
 );
