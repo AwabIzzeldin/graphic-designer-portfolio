@@ -8,10 +8,10 @@ import "swiper/css/pagination";
 
 export default function Hero() {
   const slides = [
-    { img: "/images//hero/hero1.jpg", alt: "تصميم علامة تجارية", brand: "Froozy Panda" },
-    { img: "/images/hero/hero2.jpg", alt: "هوية بصرية", brand: "Froozy Panda" },
-    { img: "/images/hero/hero3.jpg", alt: "مشروع موشن", brand: "Visual Identity" },
-    { img: "/images/hero/hero4.jpg", alt: "تصميم واجهة تطبيق", brand: "Motion Graphics" },
+    { img: "/images/dakina/dakina-7.png", alt: "تصميم منتجات", brand: "تصميم منتجات | داكنة للقهوة" },
+    { img: "/images/froozypanda/froozy-6.png", alt: "تصميم علامة تجارية", brand: "  تصميم اعلانات | ايسكريم فروزي باندا" },
+    { img: "/images/dakina/dakina-2.png", alt: "تصميم شعار (لوقو)", brand: "تصميم شعار (لوقو) | داكنة للقهوة" },
+    { img: "/images/hero/hero3.jpg", alt: "مشروع موشن", brand: "تصميم بوسترات اعلانية | فروزي باندا" },
   ];
 
   return (

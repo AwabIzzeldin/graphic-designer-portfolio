@@ -12,15 +12,15 @@ interface Project {
 
 const projects: Project[] = [
   {
-    title: "Dakina Coffee",
-    img: "/images/dakina/dakina-preview.png",
+    title: "داكنة للقهوة",
+    img: "/images/dakina/dakina-1.png",
     service: "Visual Identity",
     slug: "/projects/dakina",
   },
   {
-    title: "Froozy Panda",
-    img: "/images/froozypanda/froozy-preview.jpg",
-    service: "Brand Identity",
+    title: "فروزي باندا",
+    img: "/images/froozypanda/froozy-6.png",
+    service: "Visual Identity",
     slug: "/projects/froozy",
   },
   {

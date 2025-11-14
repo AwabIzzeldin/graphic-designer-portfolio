@@ -59,7 +59,7 @@ export default function Navbar() {
     },
     { name: "الخدمات", href: "#services", id: "services", internal: true },
     { name: "آراء العملاء", href: "#testimonials", id: "testimonials", internal: true },
-    { name: "تواصل", href: "/contact", id: "contact", internal: false },
+    { name: "تواصل", href: "#contact", id: "contact", internal: false },
   ];
 
   const handleNavClick = (href: string, internal: boolean) => {
@@ -153,7 +153,7 @@ export default function Navbar() {
                           {/* Level 1 — الباقة الذهبية */}
                           <div className="group relative">
                             <button
-                              onClick={() => handleNavClick("/projects/visual-identity", false)}
+                              onClick={() => handleNavClick("/projects", false)}
                               className="w-full text-white/80 hover:text-[#e86327] px-4 py-2 flex justify-between items-center"
                             >
                               الباقة الذهبية

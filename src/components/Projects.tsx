@@ -13,21 +13,21 @@ type Work = {
 
 const works: Work[] = [
   {
-    brand: "Froozy Panda",
+    brand: "فروزي باندا",
     desc: "تصميم مرئي يعكس الانتعاش والطاقة، مع هوية مرحة ولافتة.",
     service: "تصميم هوية بصرية",
     preview: "/images/froozypanda/froozy-1.png",
-    link: "/projects/froozy-panda",
+    link: "/projects/froozypanda",
   },
   {
-    brand: "Dakina Coffee",
+    brand: "داكنة للقهوة",
     desc: "إعادة بناء العلامة بأسلوب راقٍ وبسيط يعكس فلسفة الجمال.",
     service: "تصميم شعار وهوية",
     preview: "/images/dakina/dakina-1.png",
     link: "/projects/dakina",
   },
   {
-    brand: "Lumix Solutions",
+    brand: "وقف سخاء",
     desc: "علامة بصرية دافئة تجمع بين الحنين والحداثة في كل تفصيلة.",
     service: "تصميم هوية ومطبوعات",
     preview: "/images/lumix-preview.png",
