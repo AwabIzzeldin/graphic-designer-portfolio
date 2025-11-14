@@ -16,7 +16,7 @@ const works: Work[] = [
     brand: "Froozy Panda",
     desc: "تصميم مرئي يعكس الانتعاش والطاقة، مع هوية مرحة ولافتة.",
     service: "تصميم هوية بصرية",
-    preview: "/images/froozypanda/froozy-preview.jpg",
+    preview: "/images/froozypanda/froozy-1.png",
     link: "/projects/froozy-panda",
   },
   {

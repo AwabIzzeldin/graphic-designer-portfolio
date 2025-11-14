@@ -10,7 +10,6 @@ export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);                // mobile menu
   const [projectsOpen, setProjectsOpen] = useState(false);    // mobile dropdown
   const [desktopProjectsOpen, setDesktopProjectsOpen] = useState(false); // desktop dropdown
-
   const [scrolled, setScrolled] = useState(false);
   const [scrollProgress, setScrollProgress] = useState(0);
   const [activeSection, setActiveSection] = useState<string | null>(null);
@@ -22,7 +21,6 @@ export default function Navbar() {
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 60);
-
       const scrollTop = window.scrollY;
       const height = document.body.scrollHeight - window.innerHeight;
       setScrollProgress(height > 0 ? (scrollTop / height) * 100 : 0);
@@ -100,6 +98,7 @@ export default function Navbar() {
               ? "bg-white/10 backdrop-blur-xl border border-white/10 shadow-[0_0_25px_rgba(232,99,39,0.1)]"
               : "bg-transparent"
           } rounded-2xl transition-all duration-300`}
+
       >
 
         {/* Scroll Progress Bar */}
@@ -110,11 +109,13 @@ export default function Navbar() {
 
         {/* Inner navbar content */}
         <div className="flex items-center justify-between px-5 md:px-8 py-4 relative z-10">
+
+          {/* Logo */}
           <Link href="/" className="text-[#e86327] font-semibold text-lg tracking-wider">
             أبوبكر بدوي | <span className="text-white">مصمم جرافيك</span>
           </Link>
 
-          {/* Desktop nav */}
+          {/* DESKTOP NAV */}
           <div className="hidden md:flex items-center gap-8">
             {navLinks.map((link, i) => {
 
@@ -149,7 +150,7 @@ export default function Navbar() {
                           rounded-xl shadow-xl px-0 py-2 w-56 text-right z-50 space-y-2"
                         >
 
-                          
+                          {/* Level 1 — الباقة الذهبية */}
                           <div className="group relative">
                             <button
                               onClick={() => handleNavClick("/projects/visual-identity", false)}
@@ -159,19 +160,31 @@ export default function Navbar() {
                               <ChevronDown size={15} className="opacity-70" />
                             </button>
 
-                            {/* DROPDOWN LEVEL 2 (Under Visual Identity) */}
-                            <div className="hidden group-hover:block absolute right-full top-0 bg-[#0D0A07]
-                              border border-white/10 rounded-xl shadow-xl w-44 py-2 z-50">
+                            {/* ------------------ LEVEL 2 SUBMENU ------------------ */}
+                            <div
+                              className="hidden group-hover:block absolute right-full top-0 bg-[#0D0A07]
+                              border border-white/10 rounded-xl shadow-xl w-44 py-2 z-50"
+                            >
 
+                              {/* Dakina */}
                               <button
                                 onClick={() => handleNavClick("/projects/dakina", false)}
-                                className="block w-full text-white/70 hover:text-[#e86327] px-4 py-2"
+                                className="block w-full text-white/70 hover:text-[#e86327] px-4 py-2 text-right"
                               >
                                 داكنة
                               </button>
 
+                              {/* Froozy Panda */}
+                              <button
+                                onClick={() => handleNavClick("/projects/froozypanda", false)}
+                                className="block w-full text-white/70 hover:text-[#e86327] px-4 py-2 text-right"
+                              >
+                                فروزي باندا
+                              </button>
+
                             </div>
                           </div>
+
                         </motion.div>
                       )}
                     </AnimatePresence>
@@ -197,7 +210,7 @@ export default function Navbar() {
             })}
           </div>
 
-          {/* Mobile menu toggle */}
+          {/* MOBILE MENU TOGGLE */}
           <button onClick={() => setIsOpen(!isOpen)} className="md:hidden text-white">
             {isOpen ? <X size={26} /> : <Menu size={26} />}
           </button>
@@ -245,19 +258,16 @@ export default function Navbar() {
                   if (link.dropdown) {
                     return (
                       <div key={i} className="space-y-2">
+
                         <button
                           onClick={() => setProjectsOpen(!projectsOpen)}
                           className="w-full flex justify-between items-center text-lg text-white/80"
                         >
                           {link.name}
-                          <motion.span
-                            animate={{ rotate: projectsOpen ? 180 : 0 }}
-                          >
-                            ▼
-                          </motion.span>
+                          <motion.span animate={{ rotate: projectsOpen ? 180 : 0 }}>▼</motion.span>
                         </button>
 
-                        {/* Level 1: Visual Identity */}
+                        {/* Dropdown content */}
                         <AnimatePresence>
                           {projectsOpen && (
                             <motion.div
@@ -266,11 +276,12 @@ export default function Navbar() {
                               exit={{ opacity: 0, y: -8 }}
                               className="pr-4 space-y-3"
                             >
+                              {/* الباقة الذهبية */}
                               <button
                                 onClick={() => handleNavClick("/projects/visual-identity", false)}
                                 className="block text-white/70 hover:text-[#e86327] text-md"
                               >
-                              الباقة الذهبية
+                                الباقة الذهبية
                               </button>
 
                               {/* Level 2: Dakina */}
@@ -280,6 +291,16 @@ export default function Navbar() {
                                   className="block text-white/60 hover:text-[#e86327] text-sm"
                                 >
                                   داكنة
+                                </button>
+                              </div>
+
+                              {/* Level 2: Froozy Panda */}
+                              <div className="pr-4">
+                                <button
+                                  onClick={() => handleNavClick("/projects/froozypanda", false)}
+                                  className="block text-white/60 hover:text-[#e86327] text-sm"
+                                >
+                                  فروزي باندا
                                 </button>
                               </div>
                             </motion.div>
