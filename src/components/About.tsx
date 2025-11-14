@@ -77,7 +77,7 @@ export default function About() {
                        "
           >
             <img
-              src="/images/myprofilepic.png"
+              src="/images/about/myprofilepic.png"
               alt="صورة أبوبكر"
               className="w-full h-full object-cover"
             />
