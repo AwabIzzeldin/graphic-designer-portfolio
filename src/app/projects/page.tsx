@@ -21,7 +21,7 @@ const projects: Project[] = [
     title: "فروزي باندا",
     img: "/images/froozypanda/froozy-6.png",
     service: "Visual Identity",
-    slug: "/projects/froozy",
+    slug: "/projects/froozypanda",
   },
   {
     title: "وقف سخاء",

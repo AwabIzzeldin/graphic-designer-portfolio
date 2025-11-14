@@ -97,7 +97,7 @@ export default function FroozyPanda() {
               ) : (
                 <Image
                   src={src}
-                  alt={`Dakina image ${i}`}
+                  alt={`FroozyPanda image ${i}`}
                   width={2000}
                   height={1200}
                   className="w-full h-auto object-cover"
