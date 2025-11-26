@@ -5,18 +5,18 @@ import { motion } from "framer-motion";
 
 export default function DakinaCaseStudy() {
   const images = [
-    "/images/dakina/dakina-1.png",
-    "/images/dakina/dakina-2.png",
+    "/images/dakina/dakina-1.webp",
+    "/images/dakina/dakina-2.webp",
     "/images/dakina/dakina-3.mp4",
     "/images/dakina/dakina-4.mp4",
-    "/images/dakina/dakina-5.png",
-    "/images/dakina/dakina-6.png",
+    "/images/dakina/dakina-5.webp",
+    "/images/dakina/dakina-6.webp",
     "/images/dakina/dakina-7.png",
     "/images/dakina/dakina-8.mp4",
-    "/images/dakina/dakina-9.png",
-    "/images/dakina/dakina-10.png",
-    "/images/dakina/dakina-11.png",
-    "/images/dakina/dakina-12.png",
+    "/images/dakina/dakina-9.webp",
+    "/images/dakina/dakina-10.webp",
+    "/images/dakina/dakina-11.webp",
+    "/images/dakina/dakina-12.webp",
   ];
   
   return (
@@ -27,7 +27,7 @@ export default function DakinaCaseStudy() {
 
         {/* Background Image */}
         <img
-          src="/images/dakina/dakina-1.png"
+          src="/images/dakina/dakina-1.webp"
           alt="Dakina Hero"
           className="absolute inset-0 w-full h-full object-cover brightness-[0.55] blur-[2px]"
         />
@@ -43,7 +43,7 @@ export default function DakinaCaseStudy() {
             transition={{ duration: 1 }}
             className="text-5xl md:text-7xl font-semibold mb-4"
           >
-            قهوة "داكنة"
+            داكنة | Dakina
           </motion.h1>
 
           <motion.p

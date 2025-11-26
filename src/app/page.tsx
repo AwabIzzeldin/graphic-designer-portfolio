@@ -13,12 +13,12 @@ return (
 <main dir="rtl" className="bg-[#0D0A07] text-white selection:bg-[#e86327]/30 selection:text-white">
 <Navbar />
 <Hero />
+<LogoCarousel />
 <About />
 <Services />
 <Projects />
 <Testimonials />
 <Contact />
-{/* <LogoCarousel /> */}
 <Footer />
 </main>
 );

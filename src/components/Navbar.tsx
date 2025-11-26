@@ -171,7 +171,7 @@ export default function Navbar() {
                                 onClick={() => handleNavClick("/projects/dakina", false)}
                                 className="block w-full text-white/70 hover:text-[#e86327] px-4 py-2 text-right"
                               >
-                                داكنة
+                                 داكنة 
                               </button>
 
                               {/* Froozy Panda */}
@@ -179,7 +179,31 @@ export default function Navbar() {
                                 onClick={() => handleNavClick("/projects/froozypanda", false)}
                                 className="block w-full text-white/70 hover:text-[#e86327] px-4 py-2 text-right"
                               >
-                                فروزي باندا
+                                فروزي باندا 
+                              </button>
+                              <button
+                                onClick={() => handleNavClick("/projects/otoka", false)}
+                                className="block w-full text-white/70 hover:text-[#e86327] px-4 py-2 text-right"
+                              >
+                                أوتوكا
+                              </button>
+                              <button
+                                onClick={() => handleNavClick("/projects/loomx", false)}
+                                className="block w-full text-white/70 hover:text-[#e86327] px-4 py-2 text-right"
+                              >
+                                لومكس
+                              </button>
+                              <button
+                                onClick={() => handleNavClick("/projects/neurexa", false)}
+                                className="block w-full text-white/70 hover:text-[#e86327] px-4 py-2 text-right"
+                              >
+                                نيوريكسا
+                              </button>
+                              <button
+                                onClick={() => handleNavClick("/projects/cdp", false)}
+                                className="block w-full text-white/70 hover:text-[#e86327] px-4 py-2 text-right"
+                              >
+                                CDP
                               </button>
 
                             </div>

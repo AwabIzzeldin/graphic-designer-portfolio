@@ -23,14 +23,14 @@ const works: Work[] = [
     brand: "داكنة للقهوة",
     desc: "إعادة بناء العلامة بأسلوب راقٍ وبسيط يعكس فلسفة الجمال.",
     service: "تصميم شعار وهوية",
-    preview: "/images/dakina/dakina-1.png",
+    preview: "/images/dakina/dakina-1.webp",
     link: "/projects/dakina",
   },
   {
     brand: "وقف سخاء",
     desc: "علامة بصرية دافئة تجمع بين الحنين والحداثة في كل تفصيلة.",
     service: "تصميم هوية ومطبوعات",
-    preview: "/images/lumix-preview.png",
+    preview: "/images/loomix/branding g II-29.webp",
     link: "/projects/lumix",
   },
 ];

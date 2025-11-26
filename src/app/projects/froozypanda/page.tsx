@@ -12,7 +12,7 @@ export default function FroozyPanda() {
     "/images/froozypanda/froozy-5.png",
     "/images/froozypanda/froozy-6.png",
     "/images/froozypanda/froozy-7.png",
-    "/images/froozypanda/froozy-8.png",
+    "/images/froozypanda/froozy-8.mp4",
     "/images/froozypanda/froozy-9.png",
     "/images/froozypanda/froozy-10.png",
   ];
@@ -41,7 +41,7 @@ export default function FroozyPanda() {
             transition={{ duration: 1 }}
             className="text-5xl md:text-7xl font-semibold mb-4"
           >
-            فروزي باندا
+           فروزي باندا <br/> Froozy Panda
           </motion.h1>
 
           <motion.p

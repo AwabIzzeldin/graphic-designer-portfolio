@@ -8,9 +8,9 @@ import "swiper/css/pagination";
 
 export default function Hero() {
   const slides = [
-    { img: "/images/dakina/dakina-7.png", alt: "تصميم منتجات", brand: "تصميم منتجات | داكنة للقهوة" },
+    { img: "/images/dakina/dakina-7.webp", alt: "تصميم منتجات", brand: "تصميم منتجات | داكنة للقهوة" },
     { img: "/images/froozypanda/froozy-6.png", alt: "تصميم علامة تجارية", brand: "  تصميم اعلانات | ايسكريم فروزي باندا" },
-    { img: "/images/dakina/dakina-2.png", alt: "تصميم شعار (لوقو)", brand: "تصميم شعار (لوقو) | داكنة للقهوة" },
+    { img: "/images/dakina/dakina-2.webp", alt: "تصميم شعار (لوقو)", brand: "تصميم شعار (لوقو) | داكنة للقهوة" },
     { img: "/images/hero/hero3.jpg", alt: "مشروع موشن", brand: "تصميم بوسترات اعلانية | فروزي باندا" },
   ];
 
