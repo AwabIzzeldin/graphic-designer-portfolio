@@ -1,17 +1,36 @@
 "use client";
+
 import { motion } from "framer-motion";
+import Image from "next/image";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, EffectFade, Pagination } from "swiper/modules";
+
 import "swiper/css";
 import "swiper/css/effect-fade";
 import "swiper/css/pagination";
 
 export default function Hero() {
   const slides = [
-    { img: "/images/dakina/dakina-7.webp", alt: "تصميم منتجات", brand: "تصميم منتجات | داكنة للقهوة" },
-    { img: "/images/froozypanda/froozy-6.png", alt: "تصميم علامة تجارية", brand: "  تصميم اعلانات | ايسكريم فروزي باندا" },
-    { img: "/images/dakina/dakina-2.webp", alt: "تصميم شعار (لوقو)", brand: "تصميم شعار (لوقو) | داكنة للقهوة" },
-    { img: "/images/hero/hero3.jpg", alt: "مشروع موشن", brand: "تصميم بوسترات اعلانية | فروزي باندا" },
+    {
+      img: "/images/dakina/dakina-7.webp",
+      alt: "تصميم منتجات",
+      brand: "تصميم منتجات | داكنة للقهوة",
+    },
+    {
+      img: "/images/froozypanda/froozy-6.png",
+      alt: "تصميم علامة تجارية",
+      brand: "تصميم اعلانات | ايسكريم فروزي باندا",
+    },
+    {
+      img: "/images/dakina/dakina-2.webp",
+      alt: "تصميم شعار (لوقو)",
+      brand: "تصميم شعار (لوقو) | داكنة للقهوة",
+    },
+    {
+      img: "/images/hero/hero3.jpg",
+      alt: "مشروع موشن",
+      brand: "تصميم بوسترات اعلانية | فروزي باندا",
+    },
   ];
 
   return (
@@ -34,18 +53,22 @@ export default function Hero() {
       >
         {slides.map((slide, i) => (
           <SwiperSlide key={i}>
-            {/* 🖼️ الصورة + overlay + النص */}
             <div className="relative w-full h-full">
-              <img
+
+              {/* OPTIMIZED BACKGROUND IMAGE */}
+              <Image
                 src={slide.img}
                 alt={slide.alt}
-                className="absolute inset-0 w-full h-full object-cover brightness-[0.55]"
+                fill
+                priority={i === 0}
+                sizes="100vw"
+                className="object-cover brightness-[0.55]"
               />
 
-              {/* طبقة تدرج سينمائي */}
+              {/* Filmic overlay */}
               <div className="absolute inset-0 bg-gradient-to-b from-[#0D0A07]/30 via-[#1A0033]/30 to-[#0D0A07]/30" />
 
-              {/* المحتوى الرئيسي */}
+              {/* TEXT CONTENT */}
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -82,8 +105,9 @@ export default function Hero() {
                     href="#projects"
                     className="text-xl px-8 py-3 rounded-full bg-[#e86327] text-black font-semibold shadow-[0_0_14px_#e86327] hover:shadow-[0_0_22px_#e86327] transition"
                   >
-                     أعمالي
+                    أعمالي
                   </a>
+
                   <a
                     href="#contact"
                     className="text-xl px-8 py-3 rounded-full border border-white/20 text-white hover:border-white/40 transition"
@@ -93,7 +117,7 @@ export default function Hero() {
                 </motion.div>
               </motion.div>
 
-              {/* 🟠 نص اسم المشروع/البراند */}
+              {/* BRAND LABEL */}
               <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
@@ -109,7 +133,7 @@ export default function Hero() {
         ))}
       </Swiper>
 
-      {/* ⚪ تنسيق النقاط */}
+      {/* PAGINATION STYLE */}
       <style jsx global>{`
         .swiper-pagination-bullet {
           background: rgba(255, 255, 255, 0.4);

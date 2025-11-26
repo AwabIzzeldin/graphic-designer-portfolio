@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
 
-export default function FroozyPanda() {
+export default function CDP() {
   const images = [
     "/images/CDP/CDP-01.webp",
     "/images/CDP/CDP-02.webp",
@@ -16,18 +16,21 @@ export default function FroozyPanda() {
     "/images/CDP/CDP-09.webp",
     "/images/CDP/CDP-10.webp",
   ];
-  
+
   return (
     <main className="bg-[#0D0A07] text-white">
 
       {/* ---------------- HERO ---------------- */}
-      <section className="relative h-[85vh] w-full flex items-center justify-center text-center px-6">
+      <section className="relative h-[85vh] w-full flex items-center justify-center text-center px-6 overflow-hidden">
 
-        {/* Background Image */}
-        <img
+        {/* Background Image -> OPTIMIZED */}
+        <Image
           src="/images/CDP/CDP-01.webp"
-          alt="Dakina Hero"
-          className="absolute inset-0 w-full h-full object-cover brightness-[0.55] blur-[2px]"
+          alt="CDP Hero"
+          priority
+          fill
+          className="object-cover brightness-[0.55] blur-[2px]"
+          sizes="100vw"
         />
 
         {/* Gradient Overlay */}
@@ -81,8 +84,8 @@ export default function FroozyPanda() {
               key={i}
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
-              transition={{ duration: 0.7 }}
-              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true, margin: "0px 0px -100px 0px" }}
               className="w-full"
             >
               {isVideo ? (
@@ -92,15 +95,21 @@ export default function FroozyPanda() {
                   loop
                   muted
                   playsInline
+                  preload="metadata"
                   className="w-full h-auto object-cover"
                 />
               ) : (
                 <Image
                   src={src}
-                  alt={`FroozyPanda image ${i}`}
-                  width={2000}
+                  alt={`CDP image ${i}`}
+                  width={1800}
                   height={1200}
+                  quality={85}
+                  loading="lazy"
+                  placeholder="blur"
+                  blurDataURL="/blur-placeholder.png"
                   className="w-full h-auto object-cover"
+                  sizes="100vw"
                 />
               )}
             </motion.div>

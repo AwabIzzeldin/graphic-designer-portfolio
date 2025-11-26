@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { motion } from "framer-motion";
 
 type Work = {
@@ -8,7 +9,7 @@ type Work = {
   desc: string;
   service: string;
   preview: string;
-  link: string; // <-- NEW
+  link: string;
 };
 
 const works: Work[] = [
@@ -30,8 +31,8 @@ const works: Work[] = [
     brand: "وقف سخاء",
     desc: "علامة بصرية دافئة تجمع بين الحنين والحداثة في كل تفصيلة.",
     service: "تصميم هوية ومطبوعات",
-    preview: "/images/loomix/branding g II-29.webp",
-    link: "/projects/lumix",
+    preview: "/images/loomx/branding%20g%20II-29.webp", 
+    link: "/projects/loomx",
   },
 ];
 
@@ -41,11 +42,10 @@ export default function Projects() {
       id="projects"
       className="relative py-24 md:py-32 bg-gradient-to-b from-[#0D0A07] via-[#1A0033]/40 to-[#0D0A07]"
     >
-      {/* Background glow */}
+      {/* Ambient Glow */}
       <div className="absolute -bottom-20 right-0 w-[40vw] h-[40vw] bg-[#e86327]/20 blur-[120px] rounded-full opacity-60 -z-10" />
 
       <div className="mx-auto w-[90%] md:w-[85%] xl:w-[80%]">
-
         {/* Header */}
         <div className="flex items-end justify-between mb-12">
           <h2 className="text-4xl md:text-5xl font-semibold relative">
@@ -75,13 +75,12 @@ export default function Projects() {
             عرض جميع الأعمال
           </motion.a>
         </div>
-
       </div>
     </section>
   );
 }
 
-/* ---------------- Clickable Card (No Modal) ---------------- */
+/* ---------------- Optimized Work Card ---------------- */
 function WorkCard({ w }: { w: Work }) {
   return (
     <Link href={w.link} className="group block">
@@ -93,12 +92,16 @@ function WorkCard({ w }: { w: Work }) {
       >
         {/* Image */}
         <div className="aspect-[16/10] relative overflow-hidden">
-          <img
+          <Image
             src={w.preview}
             alt={w.brand}
-            loading="lazy"
-            className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+            fill
+            className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+            sizes="(max-width: 768px) 100vw, 33vw"
+            placeholder="blur"
+            blurDataURL="/blur-placeholder.png"
           />
+
           <div
             className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent 
                        group-hover:from-[#e86327]/40 group-hover:via-black/20 group-hover:to-transparent 
@@ -106,7 +109,7 @@ function WorkCard({ w }: { w: Work }) {
           />
         </div>
 
-        {/* Text Section */}
+        {/* Text */}
         <div
           className="p-6 text-left transition-all duration-500 
                      bg-gradient-to-br from-white/[0.05] to-white/[0.02] 

@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
 
-export default function FroozyPanda() {
+export default function NeurexaCaseStudy() {
   const images = [
     "/images/neurexa/neurexa-4+.webp",
     "/images/neurexa/neurexa-4.mp4",
@@ -16,21 +16,24 @@ export default function FroozyPanda() {
     "/images/neurexa/neurexa-11.webp",
     "/images/neurexa/neurexa-12.webp",
   ];
-  
+
   return (
     <main className="bg-[#0D0A07] text-white">
 
       {/* ---------------- HERO ---------------- */}
-      <section className="relative h-[85vh] w-full flex items-center justify-center text-center px-6">
+      <section className="relative h-[85vh] w-full flex items-center justify-center text-center px-6 overflow-hidden">
 
-        {/* Background Image */}
-        <img
+        {/* Background Image — OPTIMIZED */}
+        <Image
           src="/images/neurexa/cover.jpg"
           alt="Neurexa Hero"
-          className="absolute inset-0 w-full h-full object-cover brightness-[0.55] blur-[2px]"
+          priority
+          fill
+          sizes="100vw"
+          className="object-cover brightness-[0.55] blur-[2px]"
         />
 
-        {/* Gradient Overlay */}
+        {/* Overlay */}
         <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/20 to-[#0D0A07]/80"></div>
 
         {/* Text */}
@@ -41,7 +44,7 @@ export default function FroozyPanda() {
             transition={{ duration: 1 }}
             className="text-5xl md:text-7xl font-semibold mb-4"
           >
-            Neurexa 
+            Neurexa
           </motion.h1>
 
           <motion.p
@@ -71,18 +74,15 @@ export default function FroozyPanda() {
       {/* ---------------- FULL WIDTH MEDIA ---------------- */}
       <section className="pb-0">
         {images.map((src, i) => {
-          const isVideo =
-            src.endsWith(".mp4") ||
-            src.endsWith(".webm") ||
-            src.endsWith(".mov");
+          const isVideo = src.endsWith(".mp4") || src.endsWith(".webm");
 
           return (
             <motion.div
               key={i}
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
-              transition={{ duration: 0.7 }}
-              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true, margin: "0px 0px -100px 0px" }}
               className="w-full"
             >
               {isVideo ? (
@@ -92,14 +92,20 @@ export default function FroozyPanda() {
                   loop
                   muted
                   playsInline
+                  preload="metadata"
                   className="w-full h-auto object-cover"
                 />
               ) : (
                 <Image
                   src={src}
-                  alt={`FroozyPanda image ${i}`}
-                  width={2000}
+                  alt={`Neurexa image ${i}`}
+                  width={1800}
                   height={1200}
+                  quality={85}
+                  loading="lazy"
+                  placeholder="blur"
+                  blurDataURL="/blur-placeholder.png"
+                  sizes="100vw"
                   className="w-full h-auto object-cover"
                 />
               )}
@@ -107,7 +113,6 @@ export default function FroozyPanda() {
           );
         })}
       </section>
-
     </main>
   );
 }

@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
 
-export default function FroozyPanda() {
+export default function OtokaCaseStudy() {
   const images = [
     "/images/otoka/otoka-1.webp",
     "/images/otoka/otoka-2.webp",
@@ -14,21 +14,24 @@ export default function FroozyPanda() {
     "/images/otoka/otoka-7.webp",
     "/images/otoka/otoka-8.webp",
   ];
-  
+
   return (
     <main className="bg-[#0D0A07] text-white">
 
       {/* ---------------- HERO ---------------- */}
-      <section className="relative h-[85vh] w-full flex items-center justify-center text-center px-6">
+      <section className="relative h-[85vh] w-full flex items-center justify-center text-center px-6 overflow-hidden">
 
-        {/* Background Image */}
-        <img
+        {/* Background Image — OPTIMIZED */}
+        <Image
           src="/images/otoka/otoka-1.webp"
-          alt="Dakina Hero"
-          className="absolute inset-0 w-full h-full object-cover brightness-[0.55] blur-[2px]"
+          alt="Otoka Hero"
+          priority
+          fill
+          sizes="100vw"
+          className="object-cover brightness-[0.55] blur-[2px]"
         />
 
-        {/* Gradient Overlay */}
+        {/* Overlay */}
         <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/20 to-[#0D0A07]/80"></div>
 
         {/* Text */}
@@ -69,18 +72,15 @@ export default function FroozyPanda() {
       {/* ---------------- FULL WIDTH MEDIA ---------------- */}
       <section className="pb-0">
         {images.map((src, i) => {
-          const isVideo =
-            src.endsWith(".mp4") ||
-            src.endsWith(".webm") ||
-            src.endsWith(".mov");
+          const isVideo = src.endsWith(".mp4") || src.endsWith(".webm");
 
           return (
             <motion.div
               key={i}
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
-              transition={{ duration: 0.7 }}
-              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true, margin: "0px 0px -100px 0px" }}
               className="w-full"
             >
               {isVideo ? (
@@ -90,14 +90,20 @@ export default function FroozyPanda() {
                   loop
                   muted
                   playsInline
+                  preload="metadata"
                   className="w-full h-auto object-cover"
                 />
               ) : (
                 <Image
                   src={src}
-                  alt={`FroozyPanda image ${i}`}
-                  width={2000}
+                  alt={`Otoka image ${i}`}
+                  width={1800}
                   height={1200}
+                  quality={85}
+                  loading="lazy"
+                  placeholder="blur"
+                  blurDataURL="/blur-placeholder.png"
+                  sizes="100vw"
                   className="w-full h-auto object-cover"
                 />
               )}

@@ -18,24 +18,25 @@ export default function DakinaCaseStudy() {
     "/images/dakina/dakina-11.webp",
     "/images/dakina/dakina-12.webp",
   ];
-  
+
   return (
     <main className="bg-[#0D0A07] text-white">
 
       {/* ---------------- HERO ---------------- */}
-      <section className="relative h-[85vh] w-full flex items-center justify-center text-center px-6">
+      <section className="relative h-[85vh] w-full flex items-center justify-center text-center px-6 overflow-hidden">
 
-        {/* Background Image */}
-        <img
+        {/* Background Image — OPTIMIZED */}
+        <Image
           src="/images/dakina/dakina-1.webp"
           alt="Dakina Hero"
-          className="absolute inset-0 w-full h-full object-cover brightness-[0.55] blur-[2px]"
+          priority
+          fill
+          sizes="100vw"
+          className="object-cover brightness-[0.55] blur-[2px]"
         />
 
-        {/* Gradient Overlay */}
         <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/20 to-[#0D0A07]/80"></div>
 
-        {/* Text */}
         <div className="relative z-10 max-w-2xl mx-auto">
           <motion.h1
             initial={{ opacity: 0, y: 25 }}
@@ -84,8 +85,8 @@ export default function DakinaCaseStudy() {
               key={i}
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
-              transition={{ duration: 0.7 }}
-              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true, margin: "0px 0px -100px 0px" }}
               className="w-full"
             >
               {isVideo ? (
@@ -95,14 +96,20 @@ export default function DakinaCaseStudy() {
                   loop
                   muted
                   playsInline
+                  preload="metadata"
                   className="w-full h-auto object-cover"
                 />
               ) : (
                 <Image
                   src={src}
                   alt={`Dakina image ${i}`}
-                  width={2000}
+                  width={1800}
                   height={1200}
+                  quality={85}
+                  loading="lazy"
+                  placeholder="blur"
+                  blurDataURL="/blur-placeholder.png"
+                  sizes="100vw"
                   className="w-full h-auto object-cover"
                 />
               )}
@@ -110,7 +117,6 @@ export default function DakinaCaseStudy() {
           );
         })}
       </section>
-
     </main>
   );
 }
