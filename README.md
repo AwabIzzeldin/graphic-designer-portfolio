@@ -1,73 +1,72 @@
-# Graphic Designer Portfolio Website 
+# Graphic Designer Portfolio Website
 
-A modern, bilingual (Arabic & English) portfolio website crafted for a professional graphic designer.  
-Built with a strong focus on **brand storytelling**, sleek motion design, and an engaging, responsive UI.
+A modern, bilingual (Arabic & English) portfolio website built for a professional graphic designer.  
+Focused on brand expression through motion, clean layouts, and immersive visual storytelling.
 
----
-
-### 🌍 Live Demo
-🔗 https://abubaker-ruby.vercel.app/
+Live Demo: https://abubaker-ruby.vercel.app/
 
 ---
 
-### 🧠 Project Overview
+## Overview
 
-A graphic designer needed a digital space that truly reflects his creative identity — not just a place to display work.  
-This portfolio was designed to enhance personal brand presence with motion, clear layout hierarchy, and modern visual communication.
+This project aims to elevate the designer’s professional presence by offering a digital space that reflects creativity, identity, and craft quality.  
+The UI emphasizes visual hierarchy, smooth transitions, and a refined presentation of portfolio work.
 
-🛠 Built by **WebCrafts Studio**
-
----
-
-### ✨ Key Features
-
-- Bilingual interface (Arabic & English) 🌐
-- Smooth page transitions & motion elements (Framer Motion)
-- Responsive layouts optimized for all devices 📱💻
-- Elegant project showcase grid with zoom interactions
-- Strong visual hierarchy with designer-focused typography
-- Performance-optimized images & fast loading on Vercel ⚡
+Project designed and developed under **WebCrafts Studio**.
 
 ---
 
-### 🛠 Tech Stack
+## Key Features
 
-| Category | Technologies |
-|---------|--------------|
-| Frontend | React, Next.js, Tailwind CSS |
-| Motion & UI | Framer Motion |
-| Deployment | Vercel |
-| Design Tools | Figma (UI planning), Adobe assets |
-
----
-
-### 📸 Preview Screenshots
-
-> Add UI showcase images here  
-> (Desktop + Mobile views recommended)
-
-| Section Preview | Description |
-|----------------|-------------|
-| Hero Section | Brand-first intro with motion |
-| Portfolio Grid | Interactive display of designer’s best works |
-| About Section | Bilingual copy + artistic storytelling |
-| Mobile Views | Responsive experience on all screens |
-
-*(Screenshots coming soon…)*
+- Responsive and mobile-first layout
+- Arabic & English localization support
+- Motion-based user experience using Framer Motion
+- Project gallery grid with hover and zoom interactions
+- Fast loading and optimized images through Next.js
+- Clean navigation with polished transitions
 
 ---
 
-### 🧩 Responsibilities
+## Tech Stack
 
-- Designed brand-aligned interface for strong creative identity
-- Developed multilingual UI and RTL layout support
-- Implemented animations for smoother user flow and engagement
-- Integrated dynamic project image gallery
-- Deployed and optimized performance on Vercel
+**Frontend**  
+React · Next.js · Tailwind CSS  
+
+**UI Motion & Effects**  
+Framer Motion  
+
+**Deployment**  
+Vercel  
+
+**Design & Assets**  
+Figma / Adobe tools (client-provided brand assets)
 
 ---
 
-### 📦 Installation & Setup
+## Screenshots
+
+_(Screenshots coming soon — desktop and mobile views recommended)_
+
+Suggested views to include:  
+- Hero section (brand reveal + main animation)  
+- Project showcase grid (desktop)  
+- About section (Arabic and English versions)  
+- Mobile homepage and mobile gallery  
+- Smooth navigation transition example  
+
+---
+
+## Responsibilities
+
+- Designed a brand-aligned UI with consistent typography and visual language
+- Implemented responsive layouts and RTL support for Arabic
+- Added interactive motion components for engagement and flow
+- Integrated the designer’s work assets into an organized gallery
+- Deployed and performance-optimized via Vercel
+
+---
+
+## Setup & Installation
 
 ```bash
 git clone https://github.com/AwabIzzeldin/graphic-designer-portfolio
