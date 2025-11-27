@@ -1,4 +1,4 @@
-# Graphic Designer Portfolio Website 🎨✨
+# Graphic Designer Portfolio Website 
 
 A modern, bilingual (Arabic & English) portfolio website crafted for a professional graphic designer.  
 Built with a strong focus on **brand storytelling**, sleek motion design, and an engaging, responsive UI.
