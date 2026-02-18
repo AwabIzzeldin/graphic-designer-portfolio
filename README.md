@@ -45,14 +45,7 @@ Figma / Adobe tools (client-provided brand assets)
 
 ## Screenshots
 
-_(Screenshots coming soon — desktop and mobile views recommended)_
-
-Suggested views to include:  
-- Hero section (brand reveal + main animation)  
-- Project showcase grid (desktop)  
-- About section (Arabic and English versions)  
-- Mobile homepage and mobile gallery  
-- Smooth navigation transition example  
+_(Screenshots coming soon)_
 
 ---
 
