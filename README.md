@@ -1,6 +1,6 @@
 # Graphic Designer Portfolio Website
 
-A modern, bilingual (Arabic & English) portfolio website built for a professional graphic designer.  
+A modern portfolio website built for a professional graphic designer.  
 Focused on brand expression through motion, clean layouts, and immersive visual storytelling.
 
 Live Demo: https://abubaker-ruby.vercel.app/
