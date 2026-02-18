@@ -1,7 +1,7 @@
 # Graphic Designer Portfolio Website
 
 A modern portfolio website built for a professional graphic designer.  
-Focused on brand expression through motion, clean layouts, and immersive visual storytelling.
+Focused on brand expression through motion, clean layouts, and visual storytelling.
 
 Live Demo: https://abubaker-ruby.vercel.app/
 
